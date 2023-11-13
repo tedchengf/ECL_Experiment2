@@ -108,7 +108,7 @@ def main():
 		  ]
 
 	# Output Settings
-	DIRECTORY = "./rsps/2O2F3D_H/"
+	DIRECTORY = "./rsps/"
 	HEADER = ["Blc", "Seq", "Rsp", "Truth", "Rsp_t1", "Rsp_t2", "Cnfdnc"]
 
 	###########################################################################
