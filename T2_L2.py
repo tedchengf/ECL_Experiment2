@@ -166,9 +166,9 @@ def main():
 	
 	# Presentation Settings
 	# WIN = visual.Window([1728, 1117], monitor="testMonitor", units="deg", fullscr = True, useRetina = True)
-	WIN = visual.Window([1728, 1117], monitor="testMonitor", units="deg",fullscr = False, useRetina = True, screen = 1)
+	# WIN = visual.Window([1728, 1117], monitor="testMonitor", units="deg",fullscr = False, useRetina = True, screen = 1)
 	# WIN = visual.Window([2560, 1440], monitor="testMonitor", units="deg", fullscr = False, useRetina = True, screen = 1)
-	# WIN = visual.Window([2560, 1440], monitor="testMonitor", units="deg", fullscr = True, useRetina = True, screen = 1)
+	WIN = visual.Window([2560, 1440], monitor="testMonitor", units="deg", fullscr = True, useRetina = True, screen = 1)
 	global OBJ_LINSPACE, OBJ_HEIGHT
 	OBJ_LINSPACE = [-9, 9]
 	OBJ_HEIGHT = 4
