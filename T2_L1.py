@@ -133,24 +133,24 @@ def main():
 		INCORRECT = 48
 	if conj_mode == "B1": 
 		prod_conj = SIG.form_conjunct(B1, conjunct_type = "Product")
-		CORRECT = 30
-		INCORRECT = 50
-	if conj_mode == "B2": 
-		prod_conj = SIG.form_conjunct(B2, conjunct_type = "Product")
-		CORRECT = 30
-		INCORRECT = 50
-	if conj_mode == "S1": 
-		prod_conj = SIG.form_conjunct(S1, conjunct_type = "Product")
-		CORRECT = 26
-		INCORRECT = 54
-	if conj_mode == "D1":
-		conj1 = SIG.form_conjunct(T1, conjunct_type="Product")
-		conj2 = SIG.form_conjunct(D2, conjunct_type="Product")
-		conj3 = SIG.form_conjunct(D3, conjunct_type="Product")
-		conj4 = SIG.form_conjunct(D4, conjunct_type="Product")
-		prod_conj = stimuli.Disjunct(conj1, conj2, conj3, conj4)
 		CORRECT = 32
 		INCORRECT = 48
+	if conj_mode == "B2": 
+		prod_conj = SIG.form_conjunct(B2, conjunct_type = "Product")
+		CORRECT = 32
+		INCORRECT = 48
+	if conj_mode == "S1": 
+		prod_conj = SIG.form_conjunct(S1, conjunct_type = "Product")
+		CORRECT = 32
+		INCORRECT = 48
+	# if conj_mode == "D1":
+	# 	conj1 = SIG.form_conjunct(T1, conjunct_type="Product")
+	# 	conj2 = SIG.form_conjunct(D2, conjunct_type="Product")
+	# 	conj3 = SIG.form_conjunct(D3, conjunct_type="Product")
+	# 	conj4 = SIG.form_conjunct(D4, conjunct_type="Product")
+	# 	prod_conj = stimuli.Disjunct(conj1, conj2, conj3, conj4)
+	# 	CORRECT = 32
+	# 	INCORRECT = 48
 	if LOG_FLAG == True:
 		os.makedirs(DIRECTORY + sub_code)
 		DIRECTORY += sub_code + "/"
@@ -297,13 +297,11 @@ def main():
 	SIG_gen = stimuli.Sigma([FILL, SHAPE, SIZE], ["fill", "shape", "size"], R + 1, generation_mode = GENERATION_MODE)
 	block_seq = []
 	for pid in GL: block_seq.append(SIG_gen.generate_sequence(pid))
-	random.shuffle(block_seq)
-	
+	random.shuffle(block_seq)	
 	block_disp_start = visual.TextBox2(WIN, "You are confronted by your boss, the Corporate manager of the F-302 lab. As it turns out, the Corporate had known about the correct combination all along. The experiment is but an internal qualification test to select the fitting member into the rumored “inner circle”.  You never thought that this extraordinary opportunity will be bestowed upon you. As a final test, your boss throws you 15 novel combinations to see if you correctly deduced the minimal combination that will trigger an explosion. Although these combinations have more objects, he explained that the fundamental rule for triggering an explosion remained unchanged. He restarts the presentation software, and you will see each of the novel combinations and predict whether they will trigger an explosion.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
 	block_disp_end = visual.TextBox2(WIN, "You have finished the 15 combinations your boss gave you. You wondered how you perform, but only the Corporate knows the answer. You gather your thoughts and leave the lab.", alignment = 'left', pos = (0, 2), letterHeight = 0.8)
 	cont_disp0 = visual.TextBox2(WIN, "(This is the start of the Generalization Block. Press any key to start.)",pos = (0, -3), size = [40, None], alignment = 'center', letterHeight = 0.8)
 	cont_disp1 = visual.TextBox2(WIN, "(This is the end of the experiment. Thank you for your participation!)",pos = (0, -3), size = [40, None], alignment = 'center', letterHeight = 0.8)	
-
 	any_cont(WIN, ABORT_KEY, [block_disp_start, cont_disp0])
 	core.wait(0.4)
 	block_rsp = block(WIN, "G2", OBJ_DICTS, TRIAL_OBJ_DICT, block_seq, prod_conj, OBJ_LINSPACE, disp_objs, show_truth = False)
