@@ -125,7 +125,7 @@ class Sequence():
 		raise ValueError("Unaccepted level for summarize")
 
 	def satisfies(self, conjunct):
-		if isinstance(conjunct, Conjunct) != True and isinstance(conjunct, Disjunct) != True: raise TypeError("The input Conjunct must be an instance of Conjunct or Disjunct")
+		if isinstance(conjunct, Conjunct) != True and isinstance(conjunct, Disjunct) != True and isinstance(conjunct, Sequential_Conjunct) != True: raise TypeError("The input Conjunct must be an instance of Conjunct or Disjunct")
 		return conjunct.accepts(self)
 
 		if conjunct.conjunct_type == "Sum":
@@ -276,8 +276,13 @@ class Sigma():
 			conjunct_dict = {}
 			for f_ind, f_spec in enumerate(abrv_defn):
 				curr_feature = self[f_ind]
-				for fs_ind, fs_spec in enumerate(f_spec):
-					conjunct_dict.update({curr_feature[fs_ind]: fs_spec})
+				# Relation term
+				if len(f_spec) == 1:
+					curr_key = (self.features[f_ind], "Relation")
+					conjunct_dict.update({curr_key: f_spec[0]})
+				else:
+					for fs_ind, fs_spec in enumerate(f_spec):
+						conjunct_dict.update({curr_feature[fs_ind]: fs_spec})
 			return Conjunct(conjunct_dict)
 		if conjunct_type == "Product":
 			conjunct_list = []
@@ -289,6 +294,16 @@ class Sigma():
 						conjunct_dict.update({curr_feature[fs_ind]: fs_spec})
 				conjunct_list.append(conjunct_dict)
 			return Conjunct(conjunct_list)
+		if conjunct_type == "Seq":
+			conjunct_list = []
+			for obj_config in abrv_defn:
+				conjunct_dict = {}
+				for f_ind, f_spec in enumerate(obj_config):
+					curr_feature = self[f_ind]
+					for fs_ind, fs_spec in enumerate(f_spec):
+						conjunct_dict.update({curr_feature[fs_ind]: fs_spec})
+				conjunct_list.append(conjunct_dict)
+			return Sequential_Conjunct(conjunct_list)
 
 	def generate_conjuncts(self, conjunct_type = "Product"):
 		all_conjuncts = []
@@ -317,6 +332,84 @@ class Sigma():
 	# 	for full_config in full_config_gen:
 	# 		all_conjuncts.append(self.form_conjunct(full_config, conjunct_type = conjunct_type, subset_type = subset_type))
 	# 	return all_conjuncts
+
+	# assumes binary feature, and assumes 2 max objects
+	def generate_object_conjuncts(self, config, verify_conjuncts = True):
+		if len(config) == 0 or len(config) > self.r: raise RuntimeError("Invalid number of objects")
+		if sum(config) > len(self.features)*self.r: raise RuntimeError("Invalid number of features")
+		for f_config in config:
+			if f_config > len(self.features): raise RuntimeError("Invalid number of features")
+		
+		base_config = [("+0", "+0")]
+		all_obj_cfg = []
+		for f_config in config:
+			curr_obj_cfg = []
+			for feature_selection in combinations(np.arange(len(self.features)), f_config):
+				product_list = []
+				for ind in range(len(self.features)):
+					if ind in feature_selection:
+						product_list.append(list(permutations(["=1", "=0"], 2)))
+					else:
+						product_list.append(base_config)
+				curr_obj_cfg += list(product(*product_list))
+			all_obj_cfg.append(curr_obj_cfg)
+
+		all_conjuncts = []
+		# Take out repetitions
+		if len(config) == 2 and config[0] == config[1]:
+			valid_inds = multiset_comb(len(all_obj_cfg[0]), len(config))
+			for ind_pair in valid_inds:
+				all_conjuncts.append(self.form_conjunct([all_obj_cfg[0][ind_pair[0]], all_obj_cfg[1][ind_pair[1]]], conjunct_type="Product"))
+		else:
+			full_config = product(*all_obj_cfg)
+			for cfg in full_config: 
+				all_conjuncts.append(self.form_conjunct(cfg, conjunct_type="Product"))
+		if verify_conjuncts == False:
+			return all_conjuncts
+		else:
+			valid_conjuncts = []
+			for conj in all_conjuncts:
+				if len(self.satisfies(conj)) > 0: valid_conjuncts.append(conj)
+			if len(valid_conjuncts) < 1: raise RuntimeError("No valid conjunct Found")
+			return valid_conjuncts
+
+	def generate_feature_conjuncts(self, num_features, spec_functions = ["-", "=", "+"], spec_numbers = None, feat_specs = None, relation_specs = None, verify_conjuncts = True):
+		if spec_numbers is not None: spec_numbers = np.array(spec_numbers).astype(str)
+		base_config = []
+		if spec_numbers is None: spec_numbers = np.arange(self.r + 1)[1:].astype(str)
+		
+		if feat_specs is None:
+			feat_specs = [''.join(x) for x in product(spec_functions, spec_numbers)]
+		base_spec = [("+0", "+0")]
+		single_specs_A = list(product(["+0"], feat_specs))
+		single_specs_B = list(product(feat_specs, ["+0"]))
+		complex_specs = list(product(feat_specs, feat_specs))
+		all_specs = single_specs_A + single_specs_B + complex_specs
+		## accepts x and y, and + and =
+		if relation_specs is not None:
+			all_rel = []
+			for rspec in relation_specs: all_rel.append(tuple([rspec]))
+		all_specs += all_rel
+
+		all_configs = []
+		for feature_selection in combinations(np.arange(len(self.features)), num_features):
+			product_list = []
+			for ind in range(len(self.features)):
+				if ind in feature_selection: product_list.append(all_specs)
+				else: product_list.append(base_spec)
+			all_configs += list(product(*product_list))
+
+		all_conjuncts = []
+		for cfg in all_configs: 
+			all_conjuncts.append(self.form_conjunct(cfg))
+		if verify_conjuncts == False:
+			return all_conjuncts
+		else:
+			valid_conjuncts = []
+			for conj in all_conjuncts:
+				if len(self.satisfies(conj)) > 0: valid_conjuncts.append(conj)
+			if len(valid_conjuncts) < 1: raise RuntimeError("No valid conjunct Found")
+			return valid_conjuncts
 
 	def __generate_object_conj(self, max_config):
 		f_configs = []
@@ -536,6 +629,42 @@ class Sigma():
 # 	def __repr__(self):
 # 		return self.conjunct_type + " Conjunct " + self.query.__repr__() 
 
+class Sequential_Conjunct():
+	def __init__(self, query):
+		self.query = None
+		self.conjunct_type = None
+		self.complexity = None
+
+		self.preloaded_sequences = None
+		self.___initialize(query)
+
+	def ___initialize(self, query):
+		if type(query) is not list: raise TypeError("The query must be a list of dicts")
+		for q_dict in query:
+			if type(q_dict) is not dict: raise TypeError("The query must be a list of dicts")
+		self.conjunct_type = "Seq Object"
+		self.query = query
+
+		self.complexity = 1
+		for obj_dict in self.query:
+			obj_complex = 0
+			for spec in obj_dict.values():
+				if spec != "+0" and spec != "=0": obj_complex += 1
+			if obj_complex != 0: obj_complex += 1
+			self.complexity += obj_complex
+			# if len(obj_dict) > 0:
+			# 	self.complexity += len(obj_dict) + 1
+
+	def accepts(self, sequence):
+		if isinstance(sequence, Sequence) == False: raise TypeError("The input must be an instance of Sequence")
+
+		if self.preloaded_sequences is not None:
+			return self.preloaded_sequences[sequence.cid]
+
+		s_list = sequence.summarize(level = "Feature")
+		formula = self.query.copy()
+		return seq_verify_obj(formula, s_list, subset_dicts_general)
+
 class Conjunct():
 	def __init__(self, query):
 		self.query = None
@@ -560,10 +689,17 @@ class Conjunct():
 		self.complexity = 1
 		if self.conjunct_type == "Product":
 			for obj_dict in self.query:
-				if len(obj_dict) > 0:
-					self.complexity += len(obj_dict) + 1
+				obj_complex = 0
+				for spec in obj_dict.values():
+					if spec != "+0" and spec != "=0": obj_complex += 1
+				if obj_complex != 0: obj_complex += 1
+				self.complexity += obj_complex
+				# if len(obj_dict) > 0:
+				# 	self.complexity += len(obj_dict) + 1
 		else:
-			self.complexity += len(self.query)
+			for spec in self.query.values():
+				if spec != "+0": self.complexity += 1
+			# self.complexity += len(self.query)
 
 	def preload_sequences(self, sequences):
 		self.preloaded_sequences = dict({})
@@ -911,6 +1047,13 @@ def recur_verify_obj(formula, s_list, Sub_Func):
 	else:
 		return True
 
+def seq_verify_obj(formula, s_list, Sub_Func):
+	# for each term
+	for obj_i, obj_f in enumerate(formula):
+		if not Sub_Func(obj_f, s_list[obj_i]):
+			return False
+	return True
+
 def merge_dicts(*dicts):
 	res_dict = {}
 	for d in dicts:
@@ -953,16 +1096,35 @@ def subset_dicts_general(A, B):
 	if len(A) == 0: return True
 	for k_a in A:
 		qry_a = A[k_a]
-		if len(qry_a) != 2: raise RuntimeError("Invalid Query: ", qry_a)
+		# if len(qry_a) != 2: raise RuntimeError("Invalid Query: ", qry_a)
 		# determine the direction of the query
 		drc_a = qry_a[0]
 		if drc_a not in ("-", "=", "+"): raise RuntimeError("Invalid Direction in Query: ", drc_a)
 		# determine the numeral of the query
-		num_a = int(qry_a[1])
+		num_a = int(qry_a[1:])
 		# Attribute is not present
 		if k_a not in B:
+			# Relation
+			if k_a[1] == "Relation":
+				related_feat = []
+				for k_b in B.keys():
+					if k_b[0] == k_a[0]:
+						related_feat.append(B[k_b])
+				# same rel
+				if num_a == 11:
+					flag = False
+					for num in related_feat:
+						if num == sum(related_feat): flag = True
+					if flag == False: return False
+					continue
+				# diff rel
+				elif num_a == 13:
+					for num in related_feat: 
+						if num > 1: return False
+					continue
+				else: raise RuntimeError("Invalid Query " + str(num_a))
 			# Empty Numeral or Negation Case
-			if num_a == 0 or drc_a == "-":
+			elif num_a == 0 or drc_a == "-":
 				continue
 			else:
 				return False
