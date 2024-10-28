@@ -282,7 +282,7 @@ def starter_win(win, disp_objs = []):
 	obj0 = visual.ImageStim(win, "rsc/2O3F2D/rcs.png", pos = (18, 7.5))
 	obj1 = visual.ImageStim(win, "rsc/2O3F2D/rts.png", pos = (6, 7.5))
 	obj2 = visual.ImageStim(win, "rsc/2O3F2D/bcs.png", pos = (-6, 7.5))
-	obj3 = visual.ImageStim(win, "rsc/2O3F2D/bts.png", pos = (18, 7.5))
+	obj3 = visual.ImageStim(win, "rsc/2O3F2D/bts.png", pos = (-18, 7.5))
 	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [msg1, obj0, obj1, obj2, obj3] + disp_objs)
 	core.wait(0.2)
 
