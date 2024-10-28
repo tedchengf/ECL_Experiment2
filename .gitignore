@@ -1,0 +1,9 @@
+rsps/
+__pycache__/
+/*.png
+/*.csv
+/*.xlsx
+/*.pdf
+/*.pptx
+/*.html
+/*.md

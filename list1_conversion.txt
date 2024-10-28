@@ -1,0 +1,37 @@
+(19, 19, 19): Proto Negative
+(19, 13, 19): Proto Negative
+(17, 19, 19): Proto Negative
+(19, 13, 17): Proto Negative
+(2, 2, 2,): Proto Positive
+(3, 2, 2,): Proto Positive
+(2, 19, 2): Proto Positive
+(19, 2, 19): Feature Conjunctive
+(2, 17, 19): Feature Conjunctive
+(17, 17, 2): Feature Conjunctive
+(7, 11, 19): Feature Disjunctive
+(19, 5, 11): Feature Disjunctive
+(11, 13, 7): Feature Disjunctive
+(7, 13, 17): Feature Presence
+(13, 17, 7): Feature Presence
+
+(19, 19, 19): (19, 19, 19)
+(19, 13, 19): (19, 19, 19)
+(17, 19, 19): (19, 19, 19)
+(19, 13, 17): (19, 19, 19)
+(2, 2, 2,): (2, 2, 2,)
+(3, 2, 2,): (2, 2, 2,)
+(2, 19, 2): (2, 2, 2,)
+(19, 2, 19): (2, 19, 19)
+(2, 17, 19): (2, 19, 19)
+(17, 17, 2): (2, 19, 19)
+(7, 11, 19): (7, 11, 19)
+(19, 5, 11): (7, 11, 19)
+(11, 13, 7): (7, 11, 19)
+(7, 13, 17): (7, 13, 17)
+(13, 17, 7): (7, 13, 17)
+
+(19, 19, 19): "Proto Negative"
+(2, 2, 2,): "Proto Positive"
+(2, 19, 19): "Feature Conjunctive"
+(7, 11, 19): "Feature Disjunctive"
+(7, 13, 17): "Feature Presence"
