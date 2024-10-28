@@ -279,10 +279,10 @@ def starter_win(win, disp_objs = []):
 	
 	# More Background notes
 	msg1 = visual.TextBox2(win,"Before going into the task, You want to familiarize yourself with the presentation software. Above are all 4 objects. They vary in color and shape.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
-	obj0 = visual.ImageStim(win, "rsc/2O3F2D/rcs.png", pos = (18, 7.5))
-	obj1 = visual.ImageStim(win, "rsc/2O3F2D/rts.png", pos = (6, 7.5))
-	obj2 = visual.ImageStim(win, "rsc/2O3F2D/bcs.png", pos = (-6, 7.5))
-	obj3 = visual.ImageStim(win, "rsc/2O3F2D/bts.png", pos = (-18, 7.5))
+	obj0 = visual.ImageStim(win, "rsc/2O3F2D/rcs.png", pos = (18, 4))
+	obj1 = visual.ImageStim(win, "rsc/2O3F2D/rts.png", pos = (6, 4))
+	obj2 = visual.ImageStim(win, "rsc/2O3F2D/bcs.png", pos = (-6, 4))
+	obj3 = visual.ImageStim(win, "rsc/2O3F2D/bts.png", pos = (-18, 4))
 	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [msg1, obj0, obj1, obj2, obj3] + disp_objs)
 	core.wait(0.2)
 
