@@ -20,14 +20,7 @@ def main():
 	GENERATION_MODE = "Multiset Combination"
 
 	# Formula Pool
-	T1 = [
-		   [
-			  ("=1", "+0"),
-			  ("=1", "+0"),
-			  ("=1", "+0"),
-		   ]
-		 ] 
-	T2 = [
+	Tri_1 = [
 		   [
 			  ("=1", "+0"),
 			  ("+0", "+0"),
@@ -35,70 +28,25 @@ def main():
 		   ]
 		   ,
 		   [
-			  ("+0", "+0"),
-			  ("=1", "+0"),
-			  ("=1", "+0"),
-		   ]	   
-		 ]
-	B1 = [
-		   [
-			  ("=1", "+0"),
-			  ("=1", "+0"),
-			  ("+0", "+0"),
-		   ]
-		 ]
-	B2 = [
-		   [
-			  ("=1", "+0"),
-			  ("+0", "+0"),
-			  ("+0", "+0"),
-		   ]
-		   ,
-		   [
-			  ("+0", "+0"),
-			  ("=1", "+0"),
+			  ("+0", "=1"),
+			  ("+0", "=1"),
 			  ("+0", "+0"),
 		   ]	   
 		 ]
-	S1 = [
-		   [
-			  ("=1", "+0"),
-			  ("+0", "+0"),
-			  ("+0", "+0"),
-		   ]
-		 ]
-	D2 = [
-		   [
-			  ("=1", "+0"),
-			  ("=1", "+0"),
-			  ("+0", "+0"),
-		   ]
-		 ]
-	D3 = [
-		   [
-			  ("=1", "+0"),
-			  ("+0", "+0"),
-			  ("=1", "+0"),
-		   ]
-		 ]
-	D4 = [
+	Tri_2 = [
 		   [
 			  ("+0", "+0"),
 			  ("=1", "+0"),
 			  ("=1", "+0"),
-		   ]
-		 ]
-	TF = [
-		   [
-			  ("=1", "+0"),
-			  ("+0", "+0"),
 		   ]
 		   ,
 		   [
+			  ("+0", "+0"),
 			  ("+0", "+0"),
 			  ("+0", "=1"),
 		   ]	   
 		 ]
+
 	GL = [
 			(19, 19, 19),
 			(19, 13, 19),
@@ -123,19 +71,20 @@ def main():
 
 	###########################################################################
 
-	# Testing Formula
-	test_SIG = stimuli.Sigma([["r", "g", "b"], ["c","t"]], ["fill", "shape"], R, generation_mode = GENERATION_MODE)
-	# for seq in test_SIG.sequences: 
-	# 	for obj in seq: print(obj)
+	# # Testing Formula
+	# test_SIG = stimuli.Sigma([FILL, SHAPE, SIZE], ["fill", "shape", "size"], R, generation_mode = GENERATION_MODE)
+	# test_conj = test_SIG.form_conjunct(Tri_2, conjunct_type="Product")
+	# for seq in test_SIG.sequences:
+	# 	print(test_conj.accepts(seq))
+	# 	print(seq.hierarchical_rep())
 	# 	print("########")
-	print(len(test_SIG.sequences))
-	test_conj = test_SIG.form_conjunct(TF, conjunct_type="Product")
-	acc_count = 0
-	for seq in test_SIG.sequences:
-		if test_conj.accepts(seq): acc_count += 1
-		# print(test_conj.accepts(seq) ,seq)
-	print(acc_count)
-	exit()
+	# print(len(test_SIG.sequences))
+	# acc_count = 0
+	# for seq in test_SIG.sequences:
+	# 	if test_conj.accepts(seq): acc_count += 1
+	# 	# print(test_conj.accepts(seq) ,seq)
+	# print(acc_count)
+	# exit()
 
 	# Init Sigma
 	SIG = stimuli.Sigma([FILL, SHAPE, SIZE], ["fill", "shape", "size"], R, generation_mode = GENERATION_MODE)
@@ -145,26 +94,14 @@ def main():
 	while os.path.exists(DIRECTORY + sub_code):
 		sub_code = input("Duplicate Subject code. Enter a new code again: ")
 	conj_mode = input("Enter Formula Mode: ")
-	while conj_mode not in ("T1", "T2", "B1", "B2", "S1", "D1"):
+	while conj_mode not in ("Tri_1", "Tri_2"):
 		conj_mode = input("Incorrect Format; Enter Formula Mode Again: ")
-	if conj_mode == "T1": 
-		prod_conj = SIG.form_conjunct(T1, conjunct_type = "Product")
+	if conj_mode == "Tri_1": 
+		prod_conj = SIG.form_conjunct(Tri_1, conjunct_type = "Product")
 		CORRECT = 32
 		INCORRECT = 48
-	if conj_mode == "T2": 
-		prod_conj = SIG.form_conjunct(T2, conjunct_type = "Product")
-		CORRECT = 32
-		INCORRECT = 48
-	if conj_mode == "B1": 
-		prod_conj = SIG.form_conjunct(B1, conjunct_type = "Product")
-		CORRECT = 32
-		INCORRECT = 48
-	if conj_mode == "B2": 
-		prod_conj = SIG.form_conjunct(B2, conjunct_type = "Product")
-		CORRECT = 32
-		INCORRECT = 48
-	if conj_mode == "S1": 
-		prod_conj = SIG.form_conjunct(S1, conjunct_type = "Product")
+	if conj_mode == "Tri_2": 
+		prod_conj = SIG.form_conjunct(Tri_2, conjunct_type = "Product")
 		CORRECT = 32
 		INCORRECT = 48
 	# if conj_mode == "D1":

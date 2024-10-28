@@ -385,11 +385,11 @@ class Sigma():
 		single_specs_B = list(product(feat_specs, ["+0"]))
 		complex_specs = list(product(feat_specs, feat_specs))
 		all_specs = single_specs_A + single_specs_B + complex_specs
-		## accepts x and y, and + and =
-		if relation_specs is not None:
-			all_rel = []
-			for rspec in relation_specs: all_rel.append(tuple([rspec]))
-		all_specs += all_rel
+		# ## accepts x and y, and + and =
+		# if relation_specs is not None:
+		# 	all_rel = []
+		# 	for rspec in relation_specs: all_rel.append(tuple([rspec]))
+		# all_specs += all_rel
 
 		all_configs = []
 		for feature_selection in combinations(np.arange(len(self.features)), num_features):
