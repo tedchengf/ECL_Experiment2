@@ -134,8 +134,8 @@ def main():
 	
 	# Prepare Stimuli
 	correct_seq, incorrect_seq = seq_handler(SIG, SIG.sequences, prod_conj, CORRECT, INCORRECT)
-	all_seq = correct_seq + incorrect_seq
-	block_seq = all_seq
+	block_seq = correct_seq + incorrect_seq
+	block_seq = block_seq
 
 	# comb_dict = {}
 	# for seq in block_seq:
@@ -157,14 +157,10 @@ def main():
 
 	# training block 1
 	block_disp_start = visual.TextBox2(WIN, "Now that you are familiar with the presentation software, you are prepared to go through the 80 combinations.", alignment = 'left', letterHeight = 0.8)
-	block_disp_end = visual.TextBox2(WIN, "You have gone through all 32 combinations once and think that you are onto something. You can take a short rest before the Corporate urge you to go through them again.", alignment = 'left', letterHeight = 0.8)
+	block_disp_end = visual.TextBox2(WIN, "You have gone through all 16 combinations once and think that you are onto something. You can take a short rest before the Corporate urge you to go through them again.", alignment = 'left', letterHeight = 0.8)
 	cont_disp0 = visual.TextBox2(WIN, "(This is the start of block 1. Press any key to start.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)	
-	cont_disp1 = visual.TextBox2(WIN, "(This is the end of block 1. Press any key to continue.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)
-	block_seq = []
-	random.shuffle(all_seq)
-	block_seq += all_seq
-	random.shuffle(all_seq)
-	block_seq += all_seq
+	cont_disp1 = visual.TextBox2(WIN, "(This is the end of block 1. Press any key to continue.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)	
+	random.shuffle(block_seq)
 	any_cont(WIN, ABORT_KEY, [block_disp_start, cont_disp0])
 	core.wait(0.4)
 	block_rsp = block(WIN, 1, OBJ_DICTS, TRIAL_OBJ_DICT, block_seq, prod_conj, OBJ_LINSPACE, disp_objs)
@@ -182,11 +178,7 @@ def main():
 	# block_disp_end = visual.TextBox2(WIN, "You have gone through the combinations twice and believe that you have more or less gotten down to the combinations that will trigger explosions. However, just when you are about to submit your report …", alignment = 'left', pos = (0, 2), letterHeight = 0.8)
 	cont_disp0 = visual.TextBox2(WIN, "(This is the start of block 2. Press any key to start.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)	
 	cont_disp1 = visual.TextBox2(WIN, "(This is the end of block 2. Press any key to continue.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)	
-	block_seq = []
-	random.shuffle(all_seq)
-	block_seq += all_seq
-	random.shuffle(all_seq)
-	block_seq += all_seq
+	random.shuffle(block_seq)
 	any_cont(WIN, ABORT_KEY, [block_disp_start, cont_disp0])
 	core.wait(0.4)
 	block_rsp = block(WIN, 2, OBJ_DICTS, TRIAL_OBJ_DICT, block_seq, prod_conj, OBJ_LINSPACE, disp_objs)
@@ -201,8 +193,7 @@ def main():
 	# generalization block 1
 	# block_seq = []
 	# for seq in SIG.sequences: block_seq.append(seq.shuffle())
-	random.shuffle(all_seq)
-	block_seq = all_seq
+	random.shuffle(block_seq)
 	block_disp_start = visual.TextBox2(WIN, "You are now ready to go through the test block. You will only go through 16 combinations this time, and no feedback will be provided.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
 	block_disp_end = visual.TextBox2(WIN, "You have gone through the test block and submitted your report to the Corporate.You wondered how you perform, but only the Corporate knows the answer. You gather your thoughts and leave the lab.", alignment = 'left', pos = (0, 2), letterHeight = 0.8)
 	cont_disp0 = visual.TextBox2(WIN, "(This is the start of the test block. Press any key to start.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)	
@@ -301,7 +292,7 @@ def starter_win(win, disp_objs = []):
 	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [msg1, obj1, obj2] + disp_objs)
 	core.wait(0.2)
 
-	msg1 = visual.TextBox2(win,"In this experiment, you will see a number of combinations of objects arranged by the robots, presented one by one. As each combination is presented, you will be asked by the corporate to predict whether it will explode. You will also be asked to state how confident you are in your prediction. You will then see whether in fact that combination triggers an explosion, that is, whether your prediction was correct or not. At first you will just have to guess, but on the basis of the feedback you receive, you should gradually be able to learn which combinations trigger an explosion.  \n\nYou will first go through two training blocks, each block contains 32 combinations.", pos = (0,1), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	msg1 = visual.TextBox2(win,"In this experiment, you will see a number of combinations of objects arranged by the robots, presented one by one. As each combination is presented, you will be asked by the corporate to predict whether it will explode. You will also be asked to state how confident you are in your prediction. You will then see whether in fact that combination triggers an explosion, that is, whether your prediction was correct or not. At first you will just have to guess, but on the basis of the feedback you receive, you should gradually be able to learn which combinations trigger an explosion.  \n\nYou will first go through two training blocks, each block contains 16 combinations.", pos = (0,1), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [msg1] + disp_objs)
 	core.wait(0.2)
 
