@@ -156,7 +156,7 @@ def main():
 	core.wait(1)
 
 	# training block 1
-	block_disp_start = visual.TextBox2(WIN, "Now that you are familiar with the presentation software, you are prepared to go through the 80 combinations.", alignment = 'left', letterHeight = 0.8)
+	block_disp_start = visual.TextBox2(WIN, "Now that you are familiar with the presentation software, you are prepared to go through the 32 combinations.", alignment = 'left', letterHeight = 0.8)
 	block_disp_end = visual.TextBox2(WIN, "You have gone through all 32 combinations once and think that you are onto something. You can take a short rest before the Corporate urge you to go through them again.", alignment = 'left', letterHeight = 0.8)
 	cont_disp0 = visual.TextBox2(WIN, "(This is the start of block 1. Press any key to start.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)	
 	cont_disp1 = visual.TextBox2(WIN, "(This is the end of block 1. Press any key to continue.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)
