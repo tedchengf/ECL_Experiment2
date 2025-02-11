@@ -152,8 +152,8 @@ def main():
 	# Presentation Settings
 	# WIN = visual.Window([1728, 1117], monitor="testMonitor", units="deg", fullscr = True, useRetina = True)
 	# WIN = visual.Window([1728, 1117], monitor="testMonitor", units="deg", fullscr = False, useRetina = True, screen = 1)
-	WIN = visual.Window([2560, 1440], monitor="testMonitor", units="deg", fullscr = True, useRetina = True, screen = 1)
-	# WIN = visual.Window([2560, 1440], monitor="testMonitor", units="deg", fullscr = False, useRetina = True, screen = 2)
+	# WIN = visual.Window([2560, 1440], monitor="testMonitor", units="deg", fullscr = True, useRetina = True, screen = 1)
+	WIN = visual.Window([2560, 1440], monitor="testMonitor", units="deg", fullscr = False, useRetina = True, screen = 2)
 	global OBJ_LINSPACE
 	hpos = [-30, -20, -10, 0, 10, 20, 30]
 	vpos = [-2, 8]
@@ -363,12 +363,12 @@ def starter_win(win, disp_objs = []):
 
 	# Background Messages
 	starter_msg0 = visual.TextBox2(win, "Background Story:", pos = (0,7), size = [41, None], alignment = 'left', letterHeight = 1.6)
-	starter_msg1 = visual.TextBox2(win,"     You are a newly employed physicist in the Deep Rock Corporate, and are assigned to the F-302 lab to investigate a group of exotic objects. The objects resemble simple geometric shapes and are otherwise unimpressive. However, an earlier report indicates that these objects contain a tremendous amount of energy, but will only release the energy (through an explosion) when they are arranged in a certain combination with other objects. Previous research in the lab had built up an experimental setup that uses disposable robots to arrange the objects, so one can comfortably observe the explosions in your control room. \n\n      There are currently 8 such objects known to the team, and they differ by their colors (red, blue), shapes (circle, triangle), and size (large, small). The Corporate has limited the investigation to a 2-object combination for now. Your job is to go through all of these combinations and deduce the correct (and minimal) combination that will always release energy through an explosion.", pos = (0,-2), size = [40, None], alignment = 'left', letterHeight = 0.7)
+	starter_msg1 = visual.TextBox2(win,"     You are a newly employed physicist in the Deep Rock Corporate, and are assigned to the F-302 lab to investigate a group of exotic objects. The objects resemble simple geometric shapes and are otherwise unimpressive. However, an earlier report indicates that these objects contain a tremendous amount of energy, but will only release the energy (through an explosion) when they are arranged in a certain combination with other objects. Previous research in the lab had built up an experimental setup that uses disposable robots to arrange the objects, so one can comfortably observe the explosions in your control room. \n\n      There are currently 8 such objects known to the team, and they differ by their colors (red, blue), shapes (circle, triangle), and texture (wave, dots). The Corporate has limited the investigation to a 2-object combination for now. Your job is to go through all of these combinations and deduce the correct (and minimal) combination that will always release energy through an explosion.", pos = (0,-2), size = [40, None], alignment = 'left', letterHeight = 0.7)
 	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [starter_msg0, starter_msg1] + disp_objs)
 	core.wait(0.2)
 	
 	# More Background notes
-	msg1 = visual.TextBox2(win,"Before going into the task, You want to familiarize yourself with the presentation software. Above are all 8 objects. They vary in color, shape, and color.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	msg1 = visual.TextBox2(win,"Before going into the task, You want to familiarize yourself with the presentation software. Above are all 8 objects. They vary in color, shape, and texture.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	obj0 = visual.ImageStim(win, "rsc/2O3F2D/rcw.png", pos = (18, 12))
 	obj1 = visual.ImageStim(win, "rsc/2O3F2D/rcd.png", pos = (6, 12))
 	obj2 = visual.ImageStim(win, "rsc/2O3F2D/rtw.png", pos = (-6, 12))
