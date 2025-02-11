@@ -1,0 +1,46 @@
+Coding for OBJS in A, B, and C:
+
+OBJ A
+Dim1 : R (Orange), B (Blue)
+Dim2 : C (Circle), T (Triangle)
+Dim3 : W (Wave), D (Dot)
+-------
+2 : RCW
+3 : RCD
+5 : RTW 
+7 : RTD
+11: BCW
+13: BCD
+17: BTW
+19: BTD
+-------
+
+OBJ B
+Dim1 : P (Purple), Y (Yellow)
+Dim2 : X (Cross), P (Pentagon)
+Dim3 : L (Lock), G (Grid)
+-------
+2 : PXL
+3 : PXG
+5 : PPL 
+7 : PPG
+11: YXL
+13: YXG
+17: YPL
+19: YPG
+-------
+
+OBJ C
+Dim1 : G (Green), R (Red)
+Dim2 : F (Fish Scale), O (Octagon)
+Dim3 : A (Architecture), S (Scale)
+-------
+2 : GFA
+3 : GFS
+5 : GOA 
+7 : GOS
+11: RFA
+13: RFS
+17: ROA
+19: ROS
+-------
