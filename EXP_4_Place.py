@@ -152,8 +152,8 @@ def main():
 	# Presentation Settings
 	# WIN = visual.Window([1728, 1117], monitor="testMonitor", units="deg", fullscr = True, useRetina = True)
 	# WIN = visual.Window([1728, 1117], monitor="testMonitor", units="deg", fullscr = False, useRetina = True, screen = 1)
-	# WIN = visual.Window([2560, 1440], monitor="testMonitor", units="deg", fullscr = True, useRetina = True, screen = 1)
-	WIN = visual.Window([2560, 1440], monitor="testMonitor", units="deg", fullscr = False, useRetina = True, screen = 2)
+	WIN = visual.Window([2560, 1440], monitor="testMonitor", units="deg", fullscr = True, useRetina = True, screen = 1)
+	# WIN = visual.Window([2560, 1440], monitor="testMonitor", units="deg", fullscr = False, useRetina = True, screen = 2)
 	global OBJ_LINSPACE
 	hpos = [-30, -20, -10, 0, 10, 20, 30]
 	vpos = [-2, 8]
@@ -380,7 +380,7 @@ def starter_win(win, disp_objs = []):
 	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [msg1, obj0, obj1, obj2, obj3, obj4, obj5, obj6, obj7] + disp_objs)
 	core.wait(0.2)
 
-	msg1 = visual.TextBox2(win,"A 2-object combination is simply two objects placed near each other. Above is a combination represented on the screen. The order of the combination does not matter, and the object may appear in random positions", pos = (0,-7), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	msg1 = visual.TextBox2(win,"A 2-object combination is simply two objects placed near each other. Above is a combination represented on the screen.  The order of the combination does not matter, and the object may appear in random positions (their positions also do not matter)", pos = (0,-7), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	obj1 = visual.ImageStim(win, "rsc/2O3F2D/rcw.png", pos = (-5, 4))
 	obj2 = visual.ImageStim(win, "rsc/2O3F2D/btd.png", pos = (5, 4))
 	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [msg1, obj1, obj2] + disp_objs)
