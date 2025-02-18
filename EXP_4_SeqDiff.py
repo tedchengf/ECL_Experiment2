@@ -339,7 +339,7 @@ def main():
 		OBJSET = OBJ_A_DICTS
 		test_seq = []
 		for seq in SIG_1obj.sequences: test_seq.append(seq.shuffle())
-		block_disp_start = visual.TextBox2(WIN, "This is the second experimental block. In this block, you will go through 20 trials where a single artifact is immersed in a force field that may trigger heat production. You should try your best to learn the rule behind this reaction.", alignment = 'left', letterHeight = 0.8)
+		block_disp_start = visual.TextBox2(WIN, "This is the second experimental block. In this block, you will go through 20 trials where a single artifact is probed for heat production. You should try your best to learn the rule behind this reaction.", alignment = 'left', letterHeight = 0.8)
 		test_disp_start = visual.TextBox2(WIN, "Now that you have gone through 20 trials, you probably have some ideas about the rule that triggers heat production. To demonstrate your knowledge, you will now go through 8 test trials.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
 	elif conj_seq == "DW":
 		correct_seq, incorrect_seq = seq_handler(SIG_1obj, SIG_1obj.sequences, Conj_B, 8, 12)
@@ -358,8 +358,8 @@ def main():
 	random.shuffle(block_seq)
 	any_cont(WIN, ABORT_KEY, [block_disp_start, cont_disp0])
 	core.wait(0.4)
-	block_rsp = block(WIN, 2, OBJSET, curr_TOD, block_seq, blk_conj, ols, disp_objs)
 	show_all_objs(WIN, list(OBJSET[0].values()), block_obj_start, disp_objs)
+	block_rsp = block(WIN, 2, OBJSET, curr_TOD, block_seq, blk_conj, ols, disp_objs)
 	if LOG_FLAG == True:
 		with open(DIRECTORY + "Sub_resp.csv", "a") as outfile:
 			for rind in range(len(block_rsp)):
@@ -390,7 +390,7 @@ def main():
 	OBJSET = OBJ_A_DICTS
 	test_seq = []
 	for seq in SIG_2obj.sequences: test_seq.append(seq.shuffle())
-	block_disp_start = visual.TextBox2(WIN, "Let's start with the third and final experimental block. In this block, you will go through 80 trials where a combintion of two artifects is immersed in a force field that may trigger explosion. You should try your best to learn the rule behind this reaction. Note that the order of the artifacts do not matter", alignment = 'left', letterHeight = 0.8)
+	block_disp_start = visual.TextBox2(WIN, "Let's start with the third and final experimental block. In this block, you will go through 80 trials where a combintion of two artifects are probed for explosion. You should try your best to learn the rule behind this reaction. Note that the order of the artifacts do not matter", alignment = 'left', letterHeight = 0.8)
 	test_disp_start = visual.TextBox2(WIN, "Now that you have gone through 80 trials, you probably have some ideas about the rule that triggers explosion. To demonstrate your knowledge, you will now go through 36 test trials.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
 
 	cont_disp0 = visual.TextBox2(WIN, "(This is the start of block 3. Press any key to start.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)
@@ -542,12 +542,12 @@ def starter_win(win, disp_objs = []):
 
 	# Background Messages 1
 	starter_msg0 = visual.TextBox2(win, "Background Story:", pos = (0,7), size = [41, None], alignment = 'left', letterHeight = 1.6)
-	starter_msg1 = visual.TextBox2(win,"     You are a newly employed physicist in the Deep Rock Corporate and are assigned to the F-302 lab to investigate a group of exotic artifacts. The artifacts resemble simple geometric shapes and are otherwise unimpressive. However, earlier reports indicate that these artifacts hold a large amount of energy; when immersed in various force fields, they are observed to emit light, produce heat, or even explode. Your task is to investigate these artifacts.", pos = (0,-2), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	starter_msg1 = visual.TextBox2(win,"     You are a newly employed physicist in the Deep Rock Corporate and are assigned to the F-302 lab to investigate a group of exotic artifacts. The artifacts resemble simple geometric shapes and are otherwise unimpressive. However, earlier reports indicate that these artifacts hold a large amount of energy; under correct circumstances, they are observed to emit light, produce heat, or even explode. Your task is to investigate these artifacts.", pos = (0,-2), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [starter_msg0, starter_msg1] + disp_objs)
 	core.wait(0.2)
 	
 	# Background Messages 2
-	msg1 = visual.TextBox2(win,"The corporation has uncovered a number of artifacts, some of which are displayed above. They all differ by their colors, shapes, and textures. Previous investigation reveals that these are the only factors that govern the reaction of artifacts in a force field; other details like their position or their order do not matter.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	msg1 = visual.TextBox2(win,"The corporation has uncovered a number of artifacts, some of which are displayed above. They all differ by their colors, shapes, and textures. Previous investigation reveals that these are the only factors that govern the reaction of artifacts; other details like their position or their order do not matter.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	obj0 = visual.ImageStim(win, "rsc/2O3F2D/rcw.png", pos = (18, 12))
 	obj1 = visual.ImageStim(win, "rsc/2O3F2D/rcd.png", pos = (6, 12))
 	obj2 = visual.ImageStim(win, "rsc/2O3F2D/rtw.png", pos = (-6, 12))
@@ -560,7 +560,7 @@ def starter_win(win, disp_objs = []):
 	core.wait(0.2)
 
 	# Background Messages 3
-	msg1 = visual.TextBox2(win,"The experiments are divided into three blocks, through wich you will investigate the behavior of objects with the help of a light, heat, and explosion detector. In each block, you will go through experimental trials where one or two artifacts are presented, and you will be asked to predict whether they will produce light / emit heat / explode. Their actual reaction will be shown after you submit your prediction. At first, you will have to guess, but based on the feedback you receive you should gradually learn the rules that govern these reactions. \n\nTo help you understand the trial structure, let’s go through a few practice trials. Here, two objects will be arranged in a force field that may trigger an explosion. You will be prompted to predict whether an explosion will happen.", pos = (0,-2), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	msg1 = visual.TextBox2(win,"The experiments are divided into three blocks, through wich you will investigate the behavior of objects with the help of a light, heat, and explosion detector. In each block, you will go through experimental trials where one or two artifacts are presented, and you will be asked to predict whether they will produce light / emit heat / explode. Their actual reaction will be shown after you submit your prediction. At first, you will have to guess, but based on the feedback you receive you should gradually learn the rules that govern these reactions. \n\nTo help you understand the trial structure, let’s go through a few practice trials. Here, two objects are probed for an explosion. You will be prompted to predict whether an explosion will happen.", pos = (0,-2), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [msg1] + disp_objs)
 	core.wait(0.2)
 
