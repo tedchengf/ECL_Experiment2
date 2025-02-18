@@ -123,6 +123,26 @@ def main():
 	OBJ_LINSPACE_A = [0]
 	OBJ_LINSPACE_AB = [-9, 9]
 	OBJ_HEIGHT = 4
+	# OBJ_DICT1 = {
+	# 	2: visual.ImageStim(WIN, "rsc/2O3F2D/rcl.png"),
+	# 	3: visual.ImageStim(WIN, "rsc/2O3F2D/rcs.png"),
+	# 	5: visual.ImageStim(WIN, "rsc/2O3F2D/rtl.png"),
+	# 	7: visual.ImageStim(WIN, "rsc/2O3F2D/rts.png"),
+	# 	11: visual.ImageStim(WIN, "rsc/2O3F2D/bcl.png"),
+	# 	13: visual.ImageStim(WIN, "rsc/2O3F2D/bcs.png"),
+	# 	17: visual.ImageStim(WIN, "rsc/2O3F2D/btl.png"),
+	# 	19: visual.ImageStim(WIN, "rsc/2O3F2D/bts.png"),
+	# }
+	# OBJ_DICT2 = {
+	# 	2: visual.ImageStim(WIN, "rsc/2O3F2D/rcl.png"),
+	# 	3: visual.ImageStim(WIN, "rsc/2O3F2D/rcs.png"),
+	# 	5: visual.ImageStim(WIN, "rsc/2O3F2D/rtl.png"),
+	# 	7: visual.ImageStim(WIN, "rsc/2O3F2D/rts.png"),
+	# 	11: visual.ImageStim(WIN, "rsc/2O3F2D/bcl.png"),
+	# 	13: visual.ImageStim(WIN, "rsc/2O3F2D/bcs.png"),
+	# 	17: visual.ImageStim(WIN, "rsc/2O3F2D/btl.png"),
+	# 	19: visual.ImageStim(WIN, "rsc/2O3F2D/bts.png"),
+	# }
 	OBJ_DICT1 = {
 		2: visual.ImageStim(WIN, "rsc/2O3F2D/rcl.png"),
 		3: visual.ImageStim(WIN, "rsc/2O3F2D/rcs.png"),
