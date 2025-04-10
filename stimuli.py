@@ -81,6 +81,9 @@ class Sequence():
 
 		self.__initialize(objects)
 
+	def get_pid(self):
+		return self.__pid
+
 	def cequal(self, other):
 		if isinstance(other, Sequence) == False: raise TypeError("The input variable must be an instance of Sequence")
 		return self.cid == other.cid

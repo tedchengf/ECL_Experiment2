@@ -72,20 +72,20 @@ def main():
 
 	###########################################################################
 
-	# Testing Formula
-	test_SIG = stimuli.Sigma([FILL, SHAPE, SIZE], ["fill", "shape", "size"], 2, generation_mode = GENERATION_MODE)
-	test_conj = test_SIG.form_conjunct(OBJ_AB, conjunct_type="Product")
-	for seq in test_SIG.sequences:
-		print(np.prod(seq.get_pid()), test_conj.accepts(seq))
-		# print(seq.hierarchical_rep())
-		# print("########")
-	print(len(test_SIG.sequences))
-	acc_count = 0
-	for seq in test_SIG.sequences:
-		if test_conj.accepts(seq): acc_count += 1
-		# print(test_conj.accepts(seq) ,seq)
-	print(acc_count)
-	exit()
+	# # Testing Formula
+	# test_SIG = stimuli.Sigma([FILL, SHAPE, SIZE], ["fill", "shape", "size"], 2, generation_mode = GENERATION_MODE)
+	# test_conj = test_SIG.form_conjunct(OBJ_AB, conjunct_type="Product")
+	# for seq in test_SIG.sequences:
+	# 	print(np.prod(seq.get_pid()), test_conj.accepts(seq))
+	# 	# print(seq.hierarchical_rep())
+	# 	# print("########")
+	# print(len(test_SIG.sequences))
+	# acc_count = 0
+	# for seq in test_SIG.sequences:
+	# 	if test_conj.accepts(seq): acc_count += 1
+	# 	# print(test_conj.accepts(seq) ,seq)
+	# print(acc_count)
+	# exit()
 
 	# Init Sigma
 	SIG_1obj = stimuli.Sigma([FILL, SHAPE, SIZE], ["fill", "shape", "size"], 1, generation_mode = GENERATION_MODE)
@@ -125,34 +125,34 @@ def main():
 	OBJ_HEIGHT = 4
 	# DICT A: The test Dict
 	OBJ_A_DICT1 = {
-		2: visual.ImageStim(WIN, "rsc/2O3F2D/rcw.png"),
-		3: visual.ImageStim(WIN, "rsc/2O3F2D/rcd.png"),
-		5: visual.ImageStim(WIN, "rsc/2O3F2D/rtw.png"),
-		7: visual.ImageStim(WIN, "rsc/2O3F2D/rtd.png"),
-		11: visual.ImageStim(WIN, "rsc/2O3F2D/bcw.png"),
-		13: visual.ImageStim(WIN, "rsc/2O3F2D/bcd.png"),
-		17: visual.ImageStim(WIN, "rsc/2O3F2D/btw.png"),
-		19: visual.ImageStim(WIN, "rsc/2O3F2D/btd.png"),
+		2: visual.ImageStim(WIN, "rsc/2O3F2D/rcg_s.png"),
+		3: visual.ImageStim(WIN, "rsc/2O3F2D/rca_s.png"),
+		5: visual.ImageStim(WIN, "rsc/2O3F2D/rtg_s.png"),
+		7: visual.ImageStim(WIN, "rsc/2O3F2D/rta_s.png"),
+		11: visual.ImageStim(WIN, "rsc/2O3F2D/bcg_s.png"),
+		13: visual.ImageStim(WIN, "rsc/2O3F2D/bca_s.png"),
+		17: visual.ImageStim(WIN, "rsc/2O3F2D/btg_s.png"),
+		19: visual.ImageStim(WIN, "rsc/2O3F2D/bta_s.png"),
 	}
 	OBJ_A_DICT2 = {
-		2: visual.ImageStim(WIN, "rsc/2O3F2D/rcw.png"),
-		3: visual.ImageStim(WIN, "rsc/2O3F2D/rcd.png"),
-		5: visual.ImageStim(WIN, "rsc/2O3F2D/rtw.png"),
-		7: visual.ImageStim(WIN, "rsc/2O3F2D/rtd.png"),
-		11: visual.ImageStim(WIN, "rsc/2O3F2D/bcw.png"),
-		13: visual.ImageStim(WIN, "rsc/2O3F2D/bcd.png"),
-		17: visual.ImageStim(WIN, "rsc/2O3F2D/btw.png"),
-		19: visual.ImageStim(WIN, "rsc/2O3F2D/btd.png"),
+		2: visual.ImageStim(WIN, "rsc/2O3F2D/rcg_s.png"),
+		3: visual.ImageStim(WIN, "rsc/2O3F2D/rca_s.png"),
+		5: visual.ImageStim(WIN, "rsc/2O3F2D/rtg_s.png"),
+		7: visual.ImageStim(WIN, "rsc/2O3F2D/rta_s.png"),
+		11: visual.ImageStim(WIN, "rsc/2O3F2D/bcg_s.png"),
+		13: visual.ImageStim(WIN, "rsc/2O3F2D/bca_s.png"),
+		17: visual.ImageStim(WIN, "rsc/2O3F2D/btg_s.png"),
+		19: visual.ImageStim(WIN, "rsc/2O3F2D/bta_s.png"),
 	}
 	OBJ_A_DICT3 = {
-		2: visual.ImageStim(WIN, "rsc/2O3F2D/rcw.png"),
-		3: visual.ImageStim(WIN, "rsc/2O3F2D/rcd.png"),
-		5: visual.ImageStim(WIN, "rsc/2O3F2D/rtw.png"),
-		7: visual.ImageStim(WIN, "rsc/2O3F2D/rtd.png"),
-		11: visual.ImageStim(WIN, "rsc/2O3F2D/bcw.png"),
-		13: visual.ImageStim(WIN, "rsc/2O3F2D/bcd.png"),
-		17: visual.ImageStim(WIN, "rsc/2O3F2D/btw.png"),
-		19: visual.ImageStim(WIN, "rsc/2O3F2D/btd.png"),
+		2: visual.ImageStim(WIN, "rsc/2O3F2D/rcg_s.png"),
+		3: visual.ImageStim(WIN, "rsc/2O3F2D/rca_s.png"),
+		5: visual.ImageStim(WIN, "rsc/2O3F2D/rtg_s.png"),
+		7: visual.ImageStim(WIN, "rsc/2O3F2D/rta_s.png"),
+		11: visual.ImageStim(WIN, "rsc/2O3F2D/bcg_s.png"),
+		13: visual.ImageStim(WIN, "rsc/2O3F2D/bca_s.png"),
+		17: visual.ImageStim(WIN, "rsc/2O3F2D/btg_s.png"),
+		19: visual.ImageStim(WIN, "rsc/2O3F2D/bta_s.png"),
 	}
 	OBJ_A_DICTS = [OBJ_A_DICT1, OBJ_A_DICT2, OBJ_A_DICT3]
 	# DICT B: The Cross-Pentagon Dict
@@ -548,14 +548,14 @@ def starter_win(win, disp_objs = []):
 	
 	# Background Messages 2
 	msg1 = visual.TextBox2(win,"The corporation has uncovered a number of artifacts, some of which are displayed above. They all differ by their colors, shapes, and textures. Previous investigation reveals that these are the only factors that govern the reaction of artifacts; other details like their position or their order do not matter.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
-	obj0 = visual.ImageStim(win, "rsc/2O3F2D/rcw.png", pos = (18, 12))
-	obj1 = visual.ImageStim(win, "rsc/2O3F2D/rcd.png", pos = (6, 12))
-	obj2 = visual.ImageStim(win, "rsc/2O3F2D/rtw.png", pos = (-6, 12))
-	obj3 = visual.ImageStim(win, "rsc/2O3F2D/rtd.png", pos = (-18, 12))
-	obj4 = visual.ImageStim(win, "rsc/2O3F2D/bcw.png", pos = (18, -3))
-	obj5 = visual.ImageStim(win, "rsc/2O3F2D/bcd.png", pos = (6, -3))
-	obj6 = visual.ImageStim(win, "rsc/2O3F2D/btw.png", pos = (-6, -3))
-	obj7 = visual.ImageStim(win, "rsc/2O3F2D/btd.png", pos = (-18, -3))
+	obj0 = visual.ImageStim(win, "rsc/2O3F2D/rcg.png", pos = (18, 12))
+	obj1 = visual.ImageStim(win, "rsc/2O3F2D/rca.png", pos = (6, 12))
+	obj2 = visual.ImageStim(win, "rsc/2O3F2D/rtg.png", pos = (-6, 12))
+	obj3 = visual.ImageStim(win, "rsc/2O3F2D/rta.png", pos = (-18, 12))
+	obj4 = visual.ImageStim(win, "rsc/2O3F2D/bcg.png", pos = (18, -3))
+	obj5 = visual.ImageStim(win, "rsc/2O3F2D/bca.png", pos = (6, -3))
+	obj6 = visual.ImageStim(win, "rsc/2O3F2D/btg.png", pos = (-6, -3))
+	obj7 = visual.ImageStim(win, "rsc/2O3F2D/bta.png", pos = (-18, -3))
 	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [msg1, obj0, obj1, obj2, obj3, obj4, obj5, obj6, obj7] + disp_objs)
 	core.wait(0.2)
 
