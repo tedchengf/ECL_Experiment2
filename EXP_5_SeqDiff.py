@@ -671,7 +671,7 @@ def trial(win, obj_dicts, trial_obj_dict, Sequence, formula, obj_linspace, disp_
 	for obj_ind in range(len(win_objs)):
 		win_objs[obj_ind].pos = [obj_linspace[obj_ind], 4]
 		# win_objs[obj_ind].size = OBJ_SIZE
-	win_objs.append(static_obj)
+	win_objs += static_obj
 	print()
 
 	prompt_msg = trial_obj_dict["prompt_msg"]
