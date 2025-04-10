@@ -238,28 +238,28 @@ def main():
 	M_GAMMA.pos = (0, 4)
 
 	TRIAL_OBJ_DICT_A = {
-		"prompt_msg": visual.TextBox2(WIN, 'Predicted Light Emission: ', pos = [-17, -5], alignment = 'right', letterHeight = 1),
-		"true_usr": visual.TextBox2(WIN, 'True', pos = [21, -5], alignment = 'left', color = "Green", letterHeight = 1),
-		"fals_usr": visual.TextBox2(WIN, 'False', pos = [21, -5], alignment = 'left', color = "Red", letterHeight = 1),
-		"response_msg": visual.TextBox2(WIN, 'Actual Light Emission: ', pos = [-17, -7], alignment = 'right', letterHeight = 1),
-		"true_rsp": visual.TextBox2(WIN, 'True', pos = [21, -7], alignment = 'left', color = "Green", letterHeight = 1),
-		"fals_rsp": visual.TextBox2(WIN, 'False', pos = [21, -7], alignment = 'left', color = "Red", letterHeight = 1),
+		"prompt_msg": visual.TextBox2(WIN, 'Predicted Light Emission: ', pos = [-17, -10], alignment = 'right', letterHeight = 1),
+		"true_usr": visual.TextBox2(WIN, 'True', pos = [21, -10], alignment = 'left', color = "Green", letterHeight = 1),
+		"fals_usr": visual.TextBox2(WIN, 'False', pos = [21, -10], alignment = 'left', color = "Red", letterHeight = 1),
+		"response_msg": visual.TextBox2(WIN, 'Actual Light Emission: ', pos = [-17, -12], alignment = 'right', letterHeight = 1),
+		"true_rsp": visual.TextBox2(WIN, 'True', pos = [21, -12], alignment = 'left', color = "Green", letterHeight = 1),
+		"fals_rsp": visual.TextBox2(WIN, 'False', pos = [21, -12], alignment = 'left', color = "Red", letterHeight = 1),
 		"Correct_sound": sound.Sound("rsc/Correct.wav"),
 		"Incorrect_sound": sound.Sound("rsc/Incorrect.wav"),
-		"Correct_text": visual.TextBox2(WIN, "Congrats! You prediction is correct!", pos = [0, -10], alignment = 'center', color = "Green", letterHeight = 0.8),
-		"Incorrect_text": visual.TextBox2(WIN, "Unfortunately, your prediction is incorrect.", pos = [0, -10], alignment = 'center', color = "Red", letterHeight = 0.8)
+		"Correct_text": visual.TextBox2(WIN, "Congrats! You prediction is correct!", pos = [0, -13], alignment = 'center', color = "Green", letterHeight = 0.8),
+		"Incorrect_text": visual.TextBox2(WIN, "Unfortunately, your prediction is incorrect.", pos = [0, -13], alignment = 'center', color = "Red", letterHeight = 0.8)
 	}
 	TRIAL_OBJ_DICT_B = {
-		"prompt_msg": visual.TextBox2(WIN, 'Predicted Heat Production: ', pos = [-17, -5], alignment = 'right', letterHeight = 1),
-		"true_usr": visual.TextBox2(WIN, 'True', pos = [21, -5], alignment = 'left', color = "Green", letterHeight = 1),
-		"fals_usr": visual.TextBox2(WIN, 'False', pos = [21, -5], alignment = 'left', color = "Red", letterHeight = 1),
-		"response_msg": visual.TextBox2(WIN, 'Actual Heat Production: ', pos = [-17, -7], alignment = 'right', letterHeight = 1),
-		"true_rsp": visual.TextBox2(WIN, 'True', pos = [21, -7], alignment = 'left', color = "Green", letterHeight = 1),
-		"fals_rsp": visual.TextBox2(WIN, 'False', pos = [21, -7], alignment = 'left', color = "Red", letterHeight = 1),
+		"prompt_msg": visual.TextBox2(WIN, 'Predicted Heat Production: ', pos = [-17, -10], alignment = 'right', letterHeight = 1),
+		"true_usr": visual.TextBox2(WIN, 'True', pos = [21, -10], alignment = 'left', color = "Green", letterHeight = 1),
+		"fals_usr": visual.TextBox2(WIN, 'False', pos = [21, -10], alignment = 'left', color = "Red", letterHeight = 1),
+		"response_msg": visual.TextBox2(WIN, 'Actual Heat Production: ', pos = [-17, -12], alignment = 'right', letterHeight = 1),
+		"true_rsp": visual.TextBox2(WIN, 'True', pos = [21, -12], alignment = 'left', color = "Green", letterHeight = 1),
+		"fals_rsp": visual.TextBox2(WIN, 'False', pos = [21, -12], alignment = 'left', color = "Red", letterHeight = 1),
 		"Correct_sound": sound.Sound("rsc/Correct.wav"),
 		"Incorrect_sound": sound.Sound("rsc/Incorrect.wav"),
-		"Correct_text": visual.TextBox2(WIN, "Congrats! You prediction is correct!", pos = [0, -10], alignment = 'center', color = "Green", letterHeight = 0.8),
-		"Incorrect_text": visual.TextBox2(WIN, "Unfortunately, your prediction is incorrect.", pos = [0, -10], alignment = 'center', color = "Red", letterHeight = 0.8)
+		"Correct_text": visual.TextBox2(WIN, "Congrats! You prediction is correct!", pos = [0, -13], alignment = 'center', color = "Green", letterHeight = 0.8),
+		"Incorrect_text": visual.TextBox2(WIN, "Unfortunately, your prediction is incorrect.", pos = [0, -13], alignment = 'center', color = "Red", letterHeight = 0.8)
 	}
 	TRIAL_OBJ_DICT_AB = {
 		"prompt_msg": visual.TextBox2(WIN, 'Predicted Explosion: ', pos = [-17, -5], alignment = 'right', letterHeight = 1),
