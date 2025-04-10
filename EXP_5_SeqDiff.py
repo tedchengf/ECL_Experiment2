@@ -220,6 +220,10 @@ def main():
 	}
 	OBJ_C_DICTS = [OBJ_C_DICT1, OBJ_C_DICT2, OBJ_C_DICT3]
 
+	M_ALPHA = visual.ImageStim(WIN, "rsc/203F2D/alpha.png")
+	M_BETA = visual.ImageStim(WIN, "rsc/203F2D/beta.png")
+	M_GAMMA = visual.ImageStim(WIN, "rsc/203F2D/gamma.png")
+
 	TRIAL_OBJ_DICT_A = {
 		"prompt_msg": visual.TextBox2(WIN, 'Predicted Light Emission: ', pos = [-17, -5], alignment = 'right', letterHeight = 1),
 		"true_usr": visual.TextBox2(WIN, 'True', pos = [21, -5], alignment = 'left', color = "Green", letterHeight = 1),
@@ -664,6 +668,7 @@ def trial(win, obj_dicts, trial_obj_dict, Sequence, formula, obj_linspace, disp_
 	for obj_ind in range(len(win_objs)):
 		win_objs[obj_ind].pos = [obj_linspace[obj_ind], 4]
 		# win_objs[obj_ind].size = OBJ_SIZE
+	win_objs.append(M_ALPHA)
 	print()
 
 	prompt_msg = trial_obj_dict["prompt_msg"]
