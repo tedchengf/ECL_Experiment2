@@ -221,8 +221,11 @@ def main():
 	OBJ_C_DICTS = [OBJ_C_DICT1, OBJ_C_DICT2, OBJ_C_DICT3]
 
 	M_ALPHA = visual.ImageStim(WIN, "rsc/2O3F2D/alpha.png")
+	M_ALPHA.pos = (0, 4)
 	M_BETA = visual.ImageStim(WIN, "rsc/2O3F2D/beta.png")
+	M_BETA.pos = (0, 4)
 	M_GAMMA = visual.ImageStim(WIN, "rsc/2O3F2D/gamma.png")
+	M_GAMMA.pos = (0, 4)
 
 	TRIAL_OBJ_DICT_A = {
 		"prompt_msg": visual.TextBox2(WIN, 'Predicted Light Emission: ', pos = [-17, -5], alignment = 'right', letterHeight = 1),
@@ -281,7 +284,7 @@ def main():
 	random.shuffle(block_seq)
 	repeat_flag = True
 	while repeat_flag:
-		repeat_flag = test_block(WIN, OBJ_A_DICTS, TRIAL_OBJ_DICT_AB, block_seq[:4], Conj_AB, OBJ_LINSPACE_AB, disp_objs)
+		repeat_flag = test_block(WIN, OBJ_A_DICTS, TRIAL_OBJ_DICT_AB, block_seq[:4], Conj_AB, OBJ_LINSPACE_AB, disp_objs, static_obj = [M_GAMMA])
 	core.wait(1)
 
 	# training block 1
@@ -577,14 +580,14 @@ def starter_win(win, disp_objs = []):
 	# core.wait(0.4)
 	return
 
-def test_block(win, obj_dicts, trial_obj_dict, sequences, formula, obj_linspace, disp_objs = []):
+def test_block(win, obj_dicts, trial_obj_dict, sequences, formula, obj_linspace, disp_objs = [], static_obj = []):
 
 	total_rsp = np.empty((len(sequences), 6), dtype = object)
 	for ind, seq in enumerate(sequences):
 		curr_disp_objs = disp_objs.copy()
 		trial_counter = visual.TextBox2(win, "Trial " + str(ind + 1) + " out of " + str(len(sequences)) + ".", pos = [0,18], alignment = 'center', letterHeight = 0.7)
 		curr_disp_objs.append(trial_counter)
-		total_rsp[ind] = trial(win, obj_dicts, trial_obj_dict, seq, formula, obj_linspace, curr_disp_objs)
+		total_rsp[ind] = trial(win, obj_dicts, trial_obj_dict, seq, formula, obj_linspace, curr_disp_objs, static_obj)
 		core.wait(0.4)
 	
 	test_disp_end = visual.TextBox2(win, "This is the end of the practice block.", pos = [0,0], alignment = 'center', letterHeight = 1)
@@ -611,14 +614,14 @@ def test_block(win, obj_dicts, trial_obj_dict, sequences, formula, obj_linspace,
 	core.wait(0.8)
 	return repeat_flag
 
-def block(win, block_num, obj_dicts, trial_obj_dict, sequences, formula, obj_linspace, disp_objs = [], show_truth = True):
+def block(win, block_num, obj_dicts, trial_obj_dict, sequences, formula, obj_linspace, disp_objs = [], static_obj = [], show_truth = True):
 	total_rsp = np.empty((len(sequences), 7), dtype = object)
 	total_rsp[:, 0] = block_num
 	for ind, seq in enumerate(sequences):
 		curr_disp_objs = disp_objs.copy()
 		trial_counter = visual.TextBox2(win, "Trial " + str(ind + 1) + " out of " + str(len(sequences)) + ".", pos = [0,18], alignment = 'center', letterHeight = 0.7)
 		curr_disp_objs.append(trial_counter)
-		total_rsp[ind, 1:] = trial(win, obj_dicts, trial_obj_dict, seq, formula, obj_linspace, curr_disp_objs, show_truth = show_truth)
+		total_rsp[ind, 1:] = trial(win, obj_dicts, trial_obj_dict, seq, formula, obj_linspace, curr_disp_objs, static_obj, show_truth = show_truth)
 		core.wait(0.4)
 	return total_rsp
 
@@ -652,7 +655,7 @@ def spec_cont(win, abort_key, spec_keys, disp_objs):
 	event.clearEvents()
 	return
 
-def trial(win, obj_dicts, trial_obj_dict, Sequence, formula, obj_linspace, disp_objs = [], show_truth = True):
+def trial(win, obj_dicts, trial_obj_dict, Sequence, formula, obj_linspace, disp_objs = [], static_obj = [], show_truth = True):
 	# Initialize Objects
 	# print(Sequence.hierarchical_rep())
 	seq_rep = ""
@@ -668,7 +671,7 @@ def trial(win, obj_dicts, trial_obj_dict, Sequence, formula, obj_linspace, disp_
 	for obj_ind in range(len(win_objs)):
 		win_objs[obj_ind].pos = [obj_linspace[obj_ind], 4]
 		# win_objs[obj_ind].size = OBJ_SIZE
-	win_objs.append(M_ALPHA)
+	win_objs.append(static_obj)
 	print()
 
 	prompt_msg = trial_obj_dict["prompt_msg"]
@@ -702,7 +705,7 @@ def trial(win, obj_dicts, trial_obj_dict, Sequence, formula, obj_linspace, disp_
 			print(key)
 	rating = ratingScale.getRating()
 	if rating == "\n0\nBack to\nStimuli":
-		return trial(win, obj_dicts, trial_obj_dict, Sequence, formula, obj_linspace, disp_objs, show_truth)
+		return trial(win, obj_dicts, trial_obj_dict, Sequence, formula, obj_linspace, disp_objs, static_obj, show_truth = show_truth)
 	if rating == "\n1\nJust\nguessing": rating = 1
 	if rating == "\n2\n\n": rating = 2
 	if rating == "\n3\n\n": rating = 3
