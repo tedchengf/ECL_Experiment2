@@ -155,6 +155,16 @@ def main():
 		19: visual.ImageStim(WIN, "rsc/2O3F2D/bta_s.png"),
 	}
 	OBJ_A_DICTS = [OBJ_A_DICT1, OBJ_A_DICT2, OBJ_A_DICT3]
+	DISP_OBJS = [
+		visual.ImageStim(WIN, "rsc/2O3F2D/rcg.png", pos = (18, 12)),
+		visual.ImageStim(WIN, "rsc/2O3F2D/rca.png", pos = (6, 12)),
+		visual.ImageStim(WIN, "rsc/2O3F2D/rtg.png", pos = (-6, 12)),
+		visual.ImageStim(WIN, "rsc/2O3F2D/rta.png", pos = (-18, 12)),
+		visual.ImageStim(WIN, "rsc/2O3F2D/bcg.png", pos = (18, -3)),
+		visual.ImageStim(WIN, "rsc/2O3F2D/bca.png", pos = (6, -3)),
+		visual.ImageStim(WIN, "rsc/2O3F2D/btg.png", pos = (-6, -3)),
+		visual.ImageStim(WIN, "rsc/2O3F2D/bta.png", pos = (-18, -3))
+	]
 	# DICT B: The Cross-Pentagon Dict
 	OBJ_B_DICT1 = {
 		2: visual.ImageStim(WIN, "rsc/2O3F2D/pxl.png"),
@@ -314,8 +324,8 @@ def main():
 	random.shuffle(block_seq)
 	any_cont(WIN, ABORT_KEY, [block_disp_start, cont_disp0])
 	core.wait(0.4)
-	show_all_objs(WIN, list(OBJSET[0].values()), block_obj_start, disp_objs)
-	block_rsp = block(WIN, 1, OBJSET, curr_TOD, block_seq, blk_conj, ols, disp_objs)
+	show_all_objs(WIN, DISP_OBJS, block_obj_start, disp_objs)
+	block_rsp = block(WIN, 1, OBJSET, curr_TOD, block_seq, blk_conj, ols, disp_objs, static_obj=[M_ALPHA])
 	if LOG_FLAG == True:
 		with open(DIRECTORY + "Sub_resp.csv", "a") as outfile:
 			for rind in range(len(block_rsp)):
@@ -328,7 +338,7 @@ def main():
 	cont_disp1 = visual.TextBox2(WIN, "(This is the end of the block 1. Press any key to continue.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)
 	any_cont(WIN, ABORT_KEY, [test_disp_start, cont_disp0])
 	core.wait(0.4)
-	block_rsp = block(WIN, "T1", OBJSET, curr_TOD, test_seq, blk_conj, ols, disp_objs, show_truth = False)
+	block_rsp = block(WIN, "T1", OBJSET, curr_TOD, test_seq, blk_conj, ols, disp_objs, show_truth = False, static_obj=[M_ALPHA])
 	if LOG_FLAG == True:
 		with open(DIRECTORY + "Sub_resp.csv", "a") as outfile:
 			for rind in range(len(block_rsp)):
@@ -365,8 +375,8 @@ def main():
 	random.shuffle(block_seq)
 	any_cont(WIN, ABORT_KEY, [block_disp_start, cont_disp0])
 	core.wait(0.4)
-	show_all_objs(WIN, list(OBJSET[0].values()), block_obj_start, disp_objs)
-	block_rsp = block(WIN, 2, OBJSET, curr_TOD, block_seq, blk_conj, ols, disp_objs)
+	show_all_objs(WIN, DISP_OBJS, block_obj_start, disp_objs)
+	block_rsp = block(WIN, 2, OBJSET, curr_TOD, block_seq, blk_conj, ols, disp_objs, static_obj=[M_BETA])
 	if LOG_FLAG == True:
 		with open(DIRECTORY + "Sub_resp.csv", "a") as outfile:
 			for rind in range(len(block_rsp)):
@@ -379,7 +389,7 @@ def main():
 	cont_disp1 = visual.TextBox2(WIN, "(This is the end of the block 2. Press any key to continue.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)
 	any_cont(WIN, ABORT_KEY, [test_disp_start, cont_disp0])
 	core.wait(0.4)
-	block_rsp = block(WIN, "T2", OBJSET, curr_TOD, test_seq, blk_conj, ols, disp_objs, show_truth = False)
+	block_rsp = block(WIN, "T2", OBJSET, curr_TOD, test_seq, blk_conj, ols, disp_objs, show_truth = False, static_obj=[M_BETA])
 	if LOG_FLAG == True:
 		with open(DIRECTORY + "Sub_resp.csv", "a") as outfile:
 			for rind in range(len(block_rsp)):
@@ -406,8 +416,8 @@ def main():
 	random.shuffle(block_seq)
 	any_cont(WIN, ABORT_KEY, [block_disp_start, cont_disp0])
 	core.wait(0.4)
-	show_all_objs(WIN, list(OBJSET[0].values()), block_obj_start, disp_objs)
-	block_rsp = block(WIN, 3, OBJSET, curr_TOD, block_seq, blk_conj, ols, disp_objs)
+	show_all_objs(WIN, DISP_OBJS, block_obj_start, disp_objs)
+	block_rsp = block(WIN, 3, OBJSET, curr_TOD, block_seq, blk_conj, ols, disp_objs, static_obj=[M_GAMMA])
 	if LOG_FLAG == True:
 		with open(DIRECTORY + "Sub_resp.csv", "a") as outfile:
 			for rind in range(len(block_rsp)):
@@ -420,7 +430,7 @@ def main():
 	cont_disp1 = visual.TextBox2(WIN, "(This is the end of the experiment. You may now leave and report to the experimenter.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)
 	any_cont(WIN, ABORT_KEY, [test_disp_start, cont_disp0])
 	core.wait(0.4)
-	block_rsp = block(WIN, "T3", OBJSET, curr_TOD, test_seq, blk_conj, ols, disp_objs, show_truth = False)
+	block_rsp = block(WIN, "T3", OBJSET, curr_TOD, test_seq, blk_conj, ols, disp_objs, show_truth = False, static_obj=[M_GAMMA])
 	if LOG_FLAG == True:
 		with open(DIRECTORY + "Sub_resp.csv", "a") as outfile:
 			for rind in range(len(block_rsp)):
