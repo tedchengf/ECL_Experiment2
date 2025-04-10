@@ -663,7 +663,7 @@ def trial(win, obj_dicts, trial_obj_dict, Sequence, formula, obj_linspace, disp_
 		seq_rep += str(obj.id) + "; "
 	seq_rep = seq_rep[:-2]
 
-	win_objs = []
+	win_objs = static_obj
 	for ind, obj in enumerate(Sequence.objects):
 		print(obj.id, end = "; ")
 		curr_obj = obj_dicts[ind][obj.id]
@@ -671,7 +671,6 @@ def trial(win, obj_dicts, trial_obj_dict, Sequence, formula, obj_linspace, disp_
 	for obj_ind in range(len(win_objs)):
 		win_objs[obj_ind].pos = [obj_linspace[obj_ind], 4]
 		# win_objs[obj_ind].size = OBJ_SIZE
-	win_objs += static_obj
 	print()
 
 	prompt_msg = trial_obj_dict["prompt_msg"]
