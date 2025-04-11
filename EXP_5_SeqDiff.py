@@ -598,7 +598,7 @@ def starter_win(win, disp_objs = []):
 	msg1 = visual.TextBox2(win,"The corporation has also uncovered three kinds of alien machines: alpha, beta, and gamma (machine gamma is shown above). While alpha and beta has one slot, gamma has two. When correct artifacts are inserted, these machines will emit light, produce heat, and trigger explosions respectively.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	M_GAMMA_S = visual.ImageStim(win, "rsc/2O3F2D/gamma_s.png")
 	M_GAMMA_S.pos = (0, 7)
-	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [M_GAMMA_S] + disp_objs)
+	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [msg1, M_GAMMA_S] + disp_objs)
 	core.wait(0.2)
 
 	# Background Messages 3
