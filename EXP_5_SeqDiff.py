@@ -381,7 +381,7 @@ def main():
 	
 	block_obj_start_s = visual.TextBox2(WIN, "Above is the machine beta that will be used in this block. It has one slot and may produce heat.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	cont_disp0 = visual.TextBox2(WIN, "(This is the start of block 2. Press any key to start.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)	
-	block_obj_start = visual.TextBox2(WIN, "Above are the 8 artifacts that will be investigated in this block. They differ in their sizes, shapes, and textures; their orders and positions play no role whatsoever.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	block_obj_start = visual.TextBox2(WIN, "Above are the 8 artifacts that will be investigated in this block. They differ in their sizes, shapes, and textures.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	block_seq = correct_seq + incorrect_seq
 	random.shuffle(block_seq)
 	any_cont(WIN, ABORT_KEY, [block_disp_start, cont_disp0])
@@ -421,11 +421,11 @@ def main():
 	OBJSET = OBJ_A_DICTS
 	test_seq = []
 	for seq in SIG_2obj.sequences: test_seq.append(seq.shuffle())
-	block_disp_start = visual.TextBox2(WIN, "Let's start with the third and final experimental block. In this block, you will go through 80 trials where two artifacts are inserted into machine gamma to see if there is an explosion. You should try your best to learn the rule behind this reaction. Note that the order of the artifacts do not matter", alignment = 'left', letterHeight = 0.8)
+	block_disp_start = visual.TextBox2(WIN, "Let's start with the third and final experimental block. In this block, you will go through 80 trials where two artifacts are inserted into machine gamma to see if there is an explosion. You should try your best to learn the rule behind this reaction. Note that the position of the artifacts on the machine do not matter", alignment = 'left', letterHeight = 0.8)
 	test_disp_start = visual.TextBox2(WIN, "Now that you have gone through 80 trials, you probably have some ideas about the rule that triggers explosion. To demonstrate your knowledge, you will now go through 36 test trials.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
 
 	cont_disp0 = visual.TextBox2(WIN, "(This is the start of block 3. Press any key to start.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)
-	block_obj_start = visual.TextBox2(WIN, "Above are the 8 artifacts that will be investigated in this block. They differ in their sizes, shapes, and textures; their orders and positions play no role whatsoever.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	block_obj_start = visual.TextBox2(WIN, "Above are the 8 artifacts that will be investigated in this block. They differ in their sizes, shapes, and textures; their positions play no role whatsoever.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	block_obj_start_s = visual.TextBox2(WIN, "Above is the machine gamma that will be used in this block. It has two slots and may trigger an explosion.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	block_seq = correct_seq + incorrect_seq
 	random.shuffle(block_seq)
@@ -582,7 +582,7 @@ def starter_win(win, disp_objs = []):
 	core.wait(0.2)
 	
 	# Background Messages 2
-	msg1 = visual.TextBox2(win,"The corporation has uncovered a number of artifacts, some of which are displayed above. They all differ by their colors, shapes, and textures. Previous investigation reveals that these are the only factors that govern the reaction of artifacts; other details like their position or their order do not matter.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	msg1 = visual.TextBox2(win,"The corporation has uncovered a number of artifacts, some of which are displayed above. They all differ by their colors, shapes, and textures. Previous investigation reveals that these are the only factors that govern the reaction of artifacts; other details do not matter.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	obj0 = visual.ImageStim(win, "rsc/2O3F2D/rcg.png", pos = (18, 12))
 	obj1 = visual.ImageStim(win, "rsc/2O3F2D/rca.png", pos = (6, 12))
 	obj2 = visual.ImageStim(win, "rsc/2O3F2D/rtg.png", pos = (-6, 12))
@@ -596,9 +596,9 @@ def starter_win(win, disp_objs = []):
 
 	# Background Messages 2.5
 	msg1 = visual.TextBox2(win,"The corporation has also uncovered three kinds of alien machines: alpha, beta, and gamma (machine gamma is shown above). While alpha and beta has one slot, gamma has two. When correct artifacts are inserted, these machines will emit light, produce heat, and trigger explosions respectively.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
-	obj0 = visual.ImageStim(win, "rsc/2O3F2D/rcg.png", pos = (18, 12))
-	obj1 = visual.ImageStim(win, "rsc/2O3F2D/rca.png", pos = (6, 12))
-	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [msg1, obj0, obj1, obj2, obj3, obj4, obj5, obj6, obj7] + disp_objs)
+	M_GAMMA_S = visual.ImageStim(win, "rsc/2O3F2D/gamma_s.png")
+	M_GAMMA_S.pos = (0, 7)
+	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [M_GAMMA_S] + disp_objs)
 	core.wait(0.2)
 
 	# Background Messages 3
