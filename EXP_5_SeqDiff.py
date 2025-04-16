@@ -247,10 +247,10 @@ def main():
 	SOLUTION_TANK = visual.ImageStim(WIN, "rsc/2O3F2D/solutions.png", pos = (1.5, 6))
 
 	TRIAL_OBJ_DICT_A = {
-		"prompt_msg": visual.TextBox2(WIN, 'Predicted Light Emission: ', pos = [-17, -10], alignment = 'right', letterHeight = 1),
+		"prompt_msg": visual.TextBox2(WIN, 'Predicted Alpha Growth: ', pos = [-17, -10], alignment = 'right', letterHeight = 1),
 		"true_usr": visual.TextBox2(WIN, 'True', pos = [21, -10], alignment = 'left', color = "Green", letterHeight = 1),
 		"fals_usr": visual.TextBox2(WIN, 'False', pos = [21, -10], alignment = 'left', color = "Red", letterHeight = 1),
-		"response_msg": visual.TextBox2(WIN, 'Actual Light Emission: ', pos = [-17, -12], alignment = 'right', letterHeight = 1),
+		"response_msg": visual.TextBox2(WIN, 'Actual Alpha Growth: ', pos = [-17, -12], alignment = 'right', letterHeight = 1),
 		"true_rsp": visual.TextBox2(WIN, 'True', pos = [21, -12], alignment = 'left', color = "Green", letterHeight = 1),
 		"fals_rsp": visual.TextBox2(WIN, 'False', pos = [21, -12], alignment = 'left', color = "Red", letterHeight = 1),
 		"Correct_sound": sound.Sound("rsc/Correct.wav"),
@@ -259,10 +259,10 @@ def main():
 		"Incorrect_text": visual.TextBox2(WIN, "Unfortunately, your prediction is incorrect.", pos = [0, -16], alignment = 'center', color = "Red", letterHeight = 0.8)
 	}
 	TRIAL_OBJ_DICT_B = {
-		"prompt_msg": visual.TextBox2(WIN, 'Predicted Heat Production: ', pos = [-17, -10], alignment = 'right', letterHeight = 1),
+		"prompt_msg": visual.TextBox2(WIN, 'Predicted Beta Growth: ', pos = [-17, -10], alignment = 'right', letterHeight = 1),
 		"true_usr": visual.TextBox2(WIN, 'True', pos = [21, -10], alignment = 'left', color = "Green", letterHeight = 1),
 		"fals_usr": visual.TextBox2(WIN, 'False', pos = [21, -10], alignment = 'left', color = "Red", letterHeight = 1),
-		"response_msg": visual.TextBox2(WIN, 'Actual Heat Production: ', pos = [-17, -12], alignment = 'right', letterHeight = 1),
+		"response_msg": visual.TextBox2(WIN, 'Actual Beta Growth: ', pos = [-17, -12], alignment = 'right', letterHeight = 1),
 		"true_rsp": visual.TextBox2(WIN, 'True', pos = [21, -12], alignment = 'left', color = "Green", letterHeight = 1),
 		"fals_rsp": visual.TextBox2(WIN, 'False', pos = [21, -12], alignment = 'left', color = "Red", letterHeight = 1),
 		"Correct_sound": sound.Sound("rsc/Correct.wav"),
@@ -271,10 +271,10 @@ def main():
 		"Incorrect_text": visual.TextBox2(WIN, "Unfortunately, your prediction is incorrect.", pos = [0, -15], alignment = 'center', color = "Red", letterHeight = 0.8)
 	}
 	TRIAL_OBJ_DICT_AB = {
-		"prompt_msg": visual.TextBox2(WIN, 'Predicted Explosion: ', pos = [-17, -10], alignment = 'right', letterHeight = 1),
+		"prompt_msg": visual.TextBox2(WIN, 'Predicted Gamma Growth: ', pos = [-17, -10], alignment = 'right', letterHeight = 1),
 		"true_usr": visual.TextBox2(WIN, 'True', pos = [21, -10], alignment = 'left', color = "Green", letterHeight = 1),
 		"fals_usr": visual.TextBox2(WIN, 'False', pos = [21, -10], alignment = 'left', color = "Red", letterHeight = 1),
-		"response_msg": visual.TextBox2(WIN, 'Actual Explosion: ', pos = [-17, -12], alignment = 'right', letterHeight = 1),
+		"response_msg": visual.TextBox2(WIN, 'Gamma Growth: ', pos = [-17, -12], alignment = 'right', letterHeight = 1),
 		"true_rsp": visual.TextBox2(WIN, 'True', pos = [21, -12], alignment = 'left', color = "Green", letterHeight = 1),
 		"fals_rsp": visual.TextBox2(WIN, 'False', pos = [21, -12], alignment = 'left', color = "Red", letterHeight = 1),
 		"Correct_sound": sound.Sound("rsc/Correct.wav"),
@@ -580,7 +580,7 @@ def starter_win(win, disp_objs = []):
 
 	# Background Messages 1
 	starter_msg0 = visual.TextBox2(win, "Background Story:", pos = (0,7), size = [41, None], alignment = 'left', letterHeight = 1.6)
-	starter_msg1 = visual.TextBox2(win,"     You are a newly employed biologist in the Deep Rock Corporate and are assigned to the F-302 lab to investigate a group of exotic artifacts. The artifacts resemble simple geometric shapes and are otherwise unimpressive. However, earlier reports indicate that these artifacts may act as enzymes to facilitate the growth of some lucrative alien plant species. Your task is to investigate these artifacts.", pos = (0,-2), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	starter_msg1 = visual.TextBox2(win,"     You are a newly employed biologist in the Deep Rock Corporate and are assigned to the F-302 lab to investigate a group of exotic artifacts. The artifacts resemble simple geometric shapes and are otherwise unimpressive. However, earlier reports indicate that these artifacts may act as enzymes to facilitate the growth of some lucrative alien plant species. Your task is to investigate this potential.", pos = (0,-2), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [starter_msg0, starter_msg1] + disp_objs)
 	core.wait(0.2)
 	
@@ -598,7 +598,7 @@ def starter_win(win, disp_objs = []):
 	core.wait(0.2)
 
 	# Background Messages 2.5
-	msg1 = visual.TextBox2(win,"To utilize these artifacts, previous scientists drentch the artifacts into a solution for 24 hours before planting alien plant seeds with them. Currently, the enzyme enriched solution is known to facilitate the growth of alien plants alpha, beta, and gamma. An illustration of enzyme enriched solution is shown above.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	msg1 = visual.TextBox2(win,"To utilize these artifacts, you need to drentch the artifacts into a solution for 24 hours before planting alien plant seeds with them. Currently, the enzyme enriched solution is known to facilitate the growth of alien plants alpha, beta, and gamma. An illustration of enzyme enriched solution is shown above.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	SOLUTION_TANK = visual.ImageStim(win, "rsc/2O3F2D/Solutions.png", pos = (1.5, 6))
 	obj1 = visual.ImageStim(win, "rsc/2O3F2D/rcg.png", pos = (OBJ_LINSPACE_AB[0],OBJ_HEIGHT))
 	obj2 = visual.ImageStim(win, "rsc/2O3F2D/bta.png", pos = (OBJ_LINSPACE_AB[1],OBJ_HEIGHT))
@@ -606,7 +606,7 @@ def starter_win(win, disp_objs = []):
 	core.wait(0.2)
 
 	# Background Messages 3
-	msg1 = visual.TextBox2(win,"The experiments are divided into three blocks, through wich you will investigate the behavior of artifacts in cultivating plants. In each block, you will go through experimental trials where the solution is enriched with the artifacts before being planted with alien plant seeds, and you will be asked to predict whether they will facilitate the growth of plant alpha/beta/gamma. The actual outcome will be shown after you submit your prediction. At first, you will have to guess, but based on the feedback you receive you should gradually learn the what kind of artifacts facilitate plant growths. \n\nTo help you understand the trial structure, let’s go through a few practice trials. Here, the solution is enriched with two enzymes to grow plant gamma. You will be prompted to predict whether gamma will grow.", pos = (0,-2), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	msg1 = visual.TextBox2(win,"The experiments are divided into three blocks, through wich you will investigate what artifacts can be used as enzymes to cultivate alien plants. In each block, you will go through experimental trials where the solution is enriched with the artifacts before being planted with alien plant seeds, and you will be asked to predict whether they will facilitate the growth of plant alpha/beta/gamma. The actual outcome will be shown after you submit your prediction. At first, you will have to guess, but based on the feedback you receive you should gradually learn the kinds of artifacts that facilitate plant growths. \n\nTo help you understand the trial structure, let’s go through a few practice trials. Here, the solution is enriched with two enzymes to grow plant gamma. You will be prompted to predict whether gamma will grow.", pos = (0,-2), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [msg1] + disp_objs)
 	core.wait(0.2)
 
