@@ -274,7 +274,7 @@ def main():
 		"prompt_msg": visual.TextBox2(WIN, 'Predicted Gamma Growth: ', pos = [-17, -10], alignment = 'right', letterHeight = 1),
 		"true_usr": visual.TextBox2(WIN, 'True', pos = [21, -10], alignment = 'left', color = "Green", letterHeight = 1),
 		"fals_usr": visual.TextBox2(WIN, 'False', pos = [21, -10], alignment = 'left', color = "Red", letterHeight = 1),
-		"response_msg": visual.TextBox2(WIN, 'Gamma Growth: ', pos = [-17, -12], alignment = 'right', letterHeight = 1),
+		"response_msg": visual.TextBox2(WIN, 'Actual Gamma Growth: ', pos = [-17, -12], alignment = 'right', letterHeight = 1),
 		"true_rsp": visual.TextBox2(WIN, 'True', pos = [21, -12], alignment = 'left', color = "Green", letterHeight = 1),
 		"fals_rsp": visual.TextBox2(WIN, 'False', pos = [21, -12], alignment = 'left', color = "Red", letterHeight = 1),
 		"Correct_sound": sound.Sound("rsc/Correct.wav"),
