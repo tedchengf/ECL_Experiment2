@@ -117,44 +117,42 @@ def main():
 	
 	# Presentation Settings
 	# WIN = visual.Window([1728, 1117], monitor="testMonitor", units="deg", fullscr = True, useRetina = True)
-	# WIN = visual.Window([1728, 1117], monitor="testMonitor", units="deg",
-	# fullscr = False, useRetina = True, screen = 1)
-	WIN = visual.Window([2560, 1440], monitor="testMonitor", units="deg", fullscr = False, useRetina = True, screen = 2)
-	# WIN = visual.Window([2560, 1440], monitor="testMonitor", units="deg", fullscr = True, useRetina = True, screen = 1)
+	# WIN = visual.Window([1728, 1117], monitor="testMonitor", units="deg", fullscr = False, useRetina = True, screen = 1)
+	WIN = visual.Window([2560, 1440], monitor="testMonitor", units="deg", fullscr = True, useRetina = True, screen = 1)
 	global OBJ_LINSPACE_A, OBJ_LINSPACE_AB, OBJ_HEIGHT
 	OBJ_LINSPACE_A = [0]
 	OBJ_LINSPACE_AB = [-9, 9]
 	OBJ_HEIGHT = 4
 	# DICT A: The test Dict
 	OBJ_A_DICT1 = {
-		2: visual.ImageStim(WIN, "rsc/2O3F2D/rcg.png"),
-		3: visual.ImageStim(WIN, "rsc/2O3F2D/rca.png"),
-		5: visual.ImageStim(WIN, "rsc/2O3F2D/rtg.png"),
-		7: visual.ImageStim(WIN, "rsc/2O3F2D/rta.png"),
-		11: visual.ImageStim(WIN, "rsc/2O3F2D/bcg.png"),
-		13: visual.ImageStim(WIN, "rsc/2O3F2D/bca.png"),
-		17: visual.ImageStim(WIN, "rsc/2O3F2D/btg.png"),
-		19: visual.ImageStim(WIN, "rsc/2O3F2D/bta.png"),
+		2: visual.ImageStim(WIN, "rsc/2O3F2D/rcg_s.png"),
+		3: visual.ImageStim(WIN, "rsc/2O3F2D/rca_s.png"),
+		5: visual.ImageStim(WIN, "rsc/2O3F2D/rtg_s.png"),
+		7: visual.ImageStim(WIN, "rsc/2O3F2D/rta_s.png"),
+		11: visual.ImageStim(WIN, "rsc/2O3F2D/bcg_s.png"),
+		13: visual.ImageStim(WIN, "rsc/2O3F2D/bca_s.png"),
+		17: visual.ImageStim(WIN, "rsc/2O3F2D/btg_s.png"),
+		19: visual.ImageStim(WIN, "rsc/2O3F2D/bta_s.png"),
 	}
 	OBJ_A_DICT2 = {
-		2: visual.ImageStim(WIN, "rsc/2O3F2D/rcg.png"),
-		3: visual.ImageStim(WIN, "rsc/2O3F2D/rca.png"),
-		5: visual.ImageStim(WIN, "rsc/2O3F2D/rtg.png"),
-		7: visual.ImageStim(WIN, "rsc/2O3F2D/rta.png"),
-		11: visual.ImageStim(WIN, "rsc/2O3F2D/bcg.png"),
-		13: visual.ImageStim(WIN, "rsc/2O3F2D/bca.png"),
-		17: visual.ImageStim(WIN, "rsc/2O3F2D/btg.png"),
-		19: visual.ImageStim(WIN, "rsc/2O3F2D/bta.png"),
+		2: visual.ImageStim(WIN, "rsc/2O3F2D/rcg_s.png"),
+		3: visual.ImageStim(WIN, "rsc/2O3F2D/rca_s.png"),
+		5: visual.ImageStim(WIN, "rsc/2O3F2D/rtg_s.png"),
+		7: visual.ImageStim(WIN, "rsc/2O3F2D/rta_s.png"),
+		11: visual.ImageStim(WIN, "rsc/2O3F2D/bcg_s.png"),
+		13: visual.ImageStim(WIN, "rsc/2O3F2D/bca_s.png"),
+		17: visual.ImageStim(WIN, "rsc/2O3F2D/btg_s.png"),
+		19: visual.ImageStim(WIN, "rsc/2O3F2D/bta_s.png"),
 	}
 	OBJ_A_DICT3 = {
-		2: visual.ImageStim(WIN, "rsc/2O3F2D/rcg.png"),
-		3: visual.ImageStim(WIN, "rsc/2O3F2D/rca.png"),
-		5: visual.ImageStim(WIN, "rsc/2O3F2D/rtg.png"),
-		7: visual.ImageStim(WIN, "rsc/2O3F2D/rta.png"),
-		11: visual.ImageStim(WIN, "rsc/2O3F2D/bcg.png"),
-		13: visual.ImageStim(WIN, "rsc/2O3F2D/bca.png"),
-		17: visual.ImageStim(WIN, "rsc/2O3F2D/btg.png"),
-		19: visual.ImageStim(WIN, "rsc/2O3F2D/bta.png"),
+		2: visual.ImageStim(WIN, "rsc/2O3F2D/rcg_s.png"),
+		3: visual.ImageStim(WIN, "rsc/2O3F2D/rca_s.png"),
+		5: visual.ImageStim(WIN, "rsc/2O3F2D/rtg_s.png"),
+		7: visual.ImageStim(WIN, "rsc/2O3F2D/rta_s.png"),
+		11: visual.ImageStim(WIN, "rsc/2O3F2D/bcg_s.png"),
+		13: visual.ImageStim(WIN, "rsc/2O3F2D/bca_s.png"),
+		17: visual.ImageStim(WIN, "rsc/2O3F2D/btg_s.png"),
+		19: visual.ImageStim(WIN, "rsc/2O3F2D/bta_s.png"),
 	}
 	OBJ_A_DICTS = [OBJ_A_DICT1, OBJ_A_DICT2, OBJ_A_DICT3]
 	DISP_OBJS = [
@@ -232,19 +230,18 @@ def main():
 	}
 	OBJ_C_DICTS = [OBJ_C_DICT1, OBJ_C_DICT2, OBJ_C_DICT3]
 
-	# M_ALPHA = visual.ImageStim(WIN, "rsc/2O3F2D/alpha.png")
-	# M_ALPHA.pos = (0, 4)
-	# M_ALPHA_S = visual.ImageStim(WIN, "rsc/2O3F2D/alpha_s.png")
-	# M_ALPHA_S.pos = (0, 7)
-	# M_BETA = visual.ImageStim(WIN, "rsc/2O3F2D/beta.png")
-	# M_BETA.pos = (0, 4)
-	# M_BETA_S = visual.ImageStim(WIN, "rsc/2O3F2D/beta_s.png")
-	# M_BETA_S.pos = (0, 7)
-	# M_GAMMA = visual.ImageStim(WIN, "rsc/2O3F2D/gamma.png")
-	# M_GAMMA.pos = (0, 4)
-	# M_GAMMA_S = visual.ImageStim(WIN, "rsc/2O3F2D/gamma_s.png")
-	# M_GAMMA_S.pos = (0, 7)
-	SOLUTION_TANK = visual.ImageStim(WIN, "rsc/2O3F2D/solutions.png", pos = (1.5, 6))
+	M_ALPHA = visual.ImageStim(WIN, "rsc/2O3F2D/alpha.png")
+	M_ALPHA.pos = (0, 4)
+	M_ALPHA_S = visual.ImageStim(WIN, "rsc/2O3F2D/alpha_s.png")
+	M_ALPHA_S.pos = (0, 7)
+	M_BETA = visual.ImageStim(WIN, "rsc/2O3F2D/beta.png")
+	M_BETA.pos = (0, 4)
+	M_BETA_S = visual.ImageStim(WIN, "rsc/2O3F2D/beta_s.png")
+	M_BETA_S.pos = (0, 7)
+	M_GAMMA = visual.ImageStim(WIN, "rsc/2O3F2D/gamma.png")
+	M_GAMMA.pos = (0, 4)
+	M_GAMMA_S = visual.ImageStim(WIN, "rsc/2O3F2D/gamma_s.png")
+	M_GAMMA_S.pos = (0, 7)
 
 	TRIAL_OBJ_DICT_A = {
 		"prompt_msg": visual.TextBox2(WIN, 'Predicted Light Emission: ', pos = [-17, -10], alignment = 'right', letterHeight = 1),
@@ -303,8 +300,8 @@ def main():
 	random.shuffle(block_seq)
 	repeat_flag = True
 	while repeat_flag:
-		repeat_flag = test_block(WIN, OBJ_A_DICTS, TRIAL_OBJ_DICT_AB, block_seq[:4], Conj_AB, OBJ_LINSPACE_AB, disp_objs, static_obj = [SOLUTION_TANK])
-	core.wait(0.5)
+		repeat_flag = test_block(WIN, OBJ_A_DICTS, TRIAL_OBJ_DICT_AB, block_seq[:4], Conj_AB, OBJ_LINSPACE_AB, disp_objs, static_obj = [M_GAMMA])
+	core.wait(1)
 
 	# training block 1
 	if conj_seq == "PW":
@@ -315,8 +312,8 @@ def main():
 		OBJSET = OBJ_A_DICTS
 		test_seq = []
 		for seq in SIG_1obj.sequences: test_seq.append(seq.shuffle())
-		block_disp_start = visual.TextBox2(WIN, "Let's start with the first experimental block. In this block, you will go through 20 trials where the solution is enriched with a single artifact to grow plant alpha. You should try your best to learn the artifacts that work as enzyme here.", alignment = 'left', letterHeight = 0.8)
-		test_disp_start = visual.TextBox2(WIN, "Now that you have gone through 20 trials, you probably have some ideas about what artifacts can be used as enzymes here. To demonstrate your knowledge, you will go through 8 test trials and provide your predictions again; except that this time no feedback will be provided.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
+		block_disp_start = visual.TextBox2(WIN, "Let's start with the first experimental block. In this block, you will go through 20 trials where a single artifact is inserted into machine alpha to see if there is a light emission. You should try your best to learn the rule behind this reaction.", alignment = 'left', letterHeight = 0.8)
+		test_disp_start = visual.TextBox2(WIN, "Now that you have gone through 20 trials, you probably have some ideas about the artifacts that triggers light emission. To demonstrate your knowledge, you will go through 8 test trials and provide your predictions again; except that this time no feedback will be provided.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
 	elif conj_seq == "DW":
 		correct_seq, incorrect_seq = seq_handler(SIG_1obj, SIG_1obj.sequences, Conj_B, 8, 12)
 		blk_conj = Conj_A
@@ -325,20 +322,20 @@ def main():
 		OBJSET = OBJ_B_DICTS
 		test_seq = []
 		for seq in SIG_1obj.sequences: test_seq.append(seq.shuffle())
-		block_disp_start = visual.TextBox2(WIN, "Let's start with the first experimental block. In this block, you will go through 20 trials where the solution is enriched with a single artifact to grow plant alpha. You should try your best to learn the artifacts that work as enzyme here.", alignment = 'left', letterHeight = 0.8)
-		test_disp_start = visual.TextBox2(WIN, "Now that you have gone through 20 trials, you probably have some ideas about what artifacts can be used as enzymes here. To demonstrate your knowledge, you will go through 8 test trials and provide your predictions again; except that this time no feedback will be provided.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
+		block_disp_start = visual.TextBox2(WIN, "Let's start with the first experimental block. In this block, you will go through 20 trials where a single artifact is inserted into machine alpha to see if there is a light emission. You should try your best to learn the rule behind this reaction.", alignment = 'left', letterHeight = 0.8)
+		test_disp_start = visual.TextBox2(WIN, "Now that you have gone through 20 trials, you probably have some ideas about the rule that triggers light emission. To demonstrate your knowledge, you will go through 8 test trials and provide your predictions again; except that this time no feedback will be provided.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
 	cont_disp0 = visual.TextBox2(WIN, "(This is the start of block 1. Press any key to start.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)
 	block_obj_start = visual.TextBox2(WIN, "Above are the 8 artifacts that will be investigated in this block. They differ in their sizes, shapes, and textures.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
-	# block_obj_start_s = visual.TextBox2(WIN, "Above is the machine alpha that will be used in this block. It has one slot and may emit light.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	block_obj_start_s = visual.TextBox2(WIN, "Above is the machine alpha that will be used in this block. It has one slot and may emit light.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	block_seq = correct_seq + incorrect_seq
 	random.shuffle(block_seq)
 	any_cont(WIN, ABORT_KEY, [block_disp_start, cont_disp0])
 	core.wait(0.4)
 	show_all_objs(WIN, DISP_OBJS, block_obj_start, disp_objs)
 	core.wait(0.2)
-	# any_cont(WIN, ABORT_KEY, [block_obj_start_s, SOLUTION_TANK] + disp_objs)
-	# core.wait(0.2)
-	block_rsp = block(WIN, 1, OBJSET, curr_TOD, block_seq, blk_conj, ols, disp_objs, static_obj=[SOLUTION_TANK])
+	any_cont(WIN, ABORT_KEY, [block_obj_start_s, M_ALPHA_S] + disp_objs)
+	core.wait(0.2)
+	block_rsp = block(WIN, 1, OBJSET, curr_TOD, block_seq, blk_conj, ols, disp_objs, static_obj=[M_ALPHA])
 	if LOG_FLAG == True:
 		with open(DIRECTORY + "Sub_resp.csv", "a") as outfile:
 			for rind in range(len(block_rsp)):
@@ -351,7 +348,7 @@ def main():
 	cont_disp1 = visual.TextBox2(WIN, "(This is the end of the block 1. Press any key to continue.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)
 	any_cont(WIN, ABORT_KEY, [test_disp_start, cont_disp0])
 	core.wait(0.4)
-	block_rsp = block(WIN, "T1", OBJSET, curr_TOD, test_seq, blk_conj, ols, disp_objs, show_truth = False, static_obj=[SOLUTION_TANK])
+	block_rsp = block(WIN, "T1", OBJSET, curr_TOD, test_seq, blk_conj, ols, disp_objs, show_truth = False, static_obj=[M_ALPHA])
 	if LOG_FLAG == True:
 		with open(DIRECTORY + "Sub_resp.csv", "a") as outfile:
 			for rind in range(len(block_rsp)):
@@ -369,8 +366,8 @@ def main():
 		OBJSET = OBJ_A_DICTS
 		test_seq = []
 		for seq in SIG_1obj.sequences: test_seq.append(seq.shuffle())
-		block_disp_start = visual.TextBox2(WIN, "This is the second experimental block. In this block, you will go through 20 trials where the solution is enriched with a single artifact to grow plant beta. You should try your best to learn the artifacts that work as enzyme here.", alignment = 'left', letterHeight = 0.8)
-		test_disp_start = visual.TextBox2(WIN, "Now that you have gone through 20 trials, you probably have some ideas about what artifacts can be used as enzymes here. To demonstrate your knowledge, you will go through 8 test trials.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
+		block_disp_start = visual.TextBox2(WIN, "This is the second experimental block. In this block, you will go through 20 trials where a single artifact is inserted into machine beta to see if there is heat production. You should try your best to learn the rule behind this reaction.", alignment = 'left', letterHeight = 0.8)
+		test_disp_start = visual.TextBox2(WIN, "Now that you have gone through 20 trials, you probably have some ideas about the rule that triggers heat production. To demonstrate your knowledge, you will now go through 8 test trials.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
 	elif conj_seq == "DW":
 		correct_seq, incorrect_seq = seq_handler(SIG_1obj, SIG_1obj.sequences, Conj_B, 8, 12)
 		blk_conj = Conj_B
@@ -379,10 +376,10 @@ def main():
 		OBJSET = OBJ_C_DICTS
 		test_seq = []
 		for seq in SIG_1obj.sequences: test_seq.append(seq.shuffle())
-		block_disp_start = visual.TextBox2(WIN, "This is the second experimental block. In this block, you will go through 20 trials where the solution is enriched with a single artifact to grow plant beta. You should try your best to learn the artifacts that work as enzyme here.", alignment = 'left', letterHeight = 0.8)
-		test_disp_start = visual.TextBox2(WIN, "Now that you have gone through 20 trials, you probably have some ideas about what artifacts can be used as enzymes here. To demonstrate your knowledge, you will go through 8 test trials.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
+		block_disp_start = visual.TextBox2(WIN, "This is the second experimental block. In this block, you will go through 20 trials where a single artifact is inserted into machine beta to see if there is heat production. You should try your best to learn the rule behind this reaction.", alignment = 'left', letterHeight = 0.8)
+		test_disp_start = visual.TextBox2(WIN, "Now that you have gone through 20 trials, you probably have some ideas about the rule that triggers heat production. To demonstrate your knowledge, you will now go through 8 test trials.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
 	
-	# block_obj_start_s = visual.TextBox2(WIN, "Above is the machine beta that will be used in this block. It has one slot and may produce heat.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	block_obj_start_s = visual.TextBox2(WIN, "Above is the machine beta that will be used in this block. It has one slot and may produce heat.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	cont_disp0 = visual.TextBox2(WIN, "(This is the start of block 2. Press any key to start.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)	
 	block_obj_start = visual.TextBox2(WIN, "Above are the 8 artifacts that will be investigated in this block. They differ in their sizes, shapes, and textures.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	block_seq = correct_seq + incorrect_seq
@@ -391,9 +388,9 @@ def main():
 	core.wait(0.4)
 	show_all_objs(WIN, DISP_OBJS, block_obj_start, disp_objs)
 	core.wait(0.2)
-	# any_cont(WIN, ABORT_KEY, [block_obj_start_s, SOLUTION_TANK] + disp_objs)
-	# core.wait(0.2)
-	block_rsp = block(WIN, 2, OBJSET, curr_TOD, block_seq, blk_conj, ols, disp_objs, static_obj=[SOLUTION_TANK])
+	any_cont(WIN, ABORT_KEY, [block_obj_start_s, M_BETA_S] + disp_objs)
+	core.wait(0.2)
+	block_rsp = block(WIN, 2, OBJSET, curr_TOD, block_seq, blk_conj, ols, disp_objs, static_obj=[M_BETA])
 	if LOG_FLAG == True:
 		with open(DIRECTORY + "Sub_resp.csv", "a") as outfile:
 			for rind in range(len(block_rsp)):
@@ -406,7 +403,7 @@ def main():
 	cont_disp1 = visual.TextBox2(WIN, "(This is the end of the block 2. Press any key to continue.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)
 	any_cont(WIN, ABORT_KEY, [test_disp_start, cont_disp0])
 	core.wait(0.4)
-	block_rsp = block(WIN, "T2", OBJSET, curr_TOD, test_seq, blk_conj, ols, disp_objs, show_truth = False, static_obj=[SOLUTION_TANK])
+	block_rsp = block(WIN, "T2", OBJSET, curr_TOD, test_seq, blk_conj, ols, disp_objs, show_truth = False, static_obj=[M_BETA])
 	if LOG_FLAG == True:
 		with open(DIRECTORY + "Sub_resp.csv", "a") as outfile:
 			for rind in range(len(block_rsp)):
@@ -424,21 +421,21 @@ def main():
 	OBJSET = OBJ_A_DICTS
 	test_seq = []
 	for seq in SIG_2obj.sequences: test_seq.append(seq.shuffle())
-	block_disp_start = visual.TextBox2(WIN, "Let's start with the third and final experimental block. In this block, you will go through 80 trials where the solution is enriched with two artifacts to grow plant gamma. You should try your best to learn the artifacts that work as enzyme here.", alignment = 'left', letterHeight = 0.8)
-	test_disp_start = visual.TextBox2(WIN, "Now that you have gone through 80 trials, you probably have some ideas about what artifacts can be used as enzymes here. To demonstrate your knowledge, you will now go through 36 test trials.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
+	block_disp_start = visual.TextBox2(WIN, "Let's start with the third and final experimental block. In this block, you will go through 80 trials where two artifacts are inserted into machine gamma to see if there is an explosion. You should try your best to learn the rule behind this reaction. Note that the position of the artifacts on the machine do not matter", alignment = 'left', letterHeight = 0.8)
+	test_disp_start = visual.TextBox2(WIN, "Now that you have gone through 80 trials, you probably have some ideas about the rule that triggers explosion. To demonstrate your knowledge, you will now go through 36 test trials.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
 
 	cont_disp0 = visual.TextBox2(WIN, "(This is the start of block 3. Press any key to start.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)
 	block_obj_start = visual.TextBox2(WIN, "Above are the 8 artifacts that will be investigated in this block. They differ in their sizes, shapes, and textures; their positions play no role whatsoever.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
-	# block_obj_start_s = visual.TextBox2(WIN, "Above is the machine gamma that will be used in this block. It has two slots and may trigger an explosion.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	block_obj_start_s = visual.TextBox2(WIN, "Above is the machine gamma that will be used in this block. It has two slots and may trigger an explosion.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	block_seq = correct_seq + incorrect_seq
 	random.shuffle(block_seq)
 	any_cont(WIN, ABORT_KEY, [block_disp_start, cont_disp0])
 	core.wait(0.4)
 	show_all_objs(WIN, DISP_OBJS, block_obj_start, disp_objs)
 	core.wait(0.2)
-	# any_cont(WIN, ABORT_KEY, [block_obj_start_s, SOLUTION_TANK] + disp_objs)
-	# core.wait(0.2)
-	block_rsp = block(WIN, 3, OBJSET, curr_TOD, block_seq, blk_conj, ols, disp_objs, static_obj=[SOLUTION_TANK])
+	any_cont(WIN, ABORT_KEY, [block_obj_start_s, M_GAMMA_S] + disp_objs)
+	core.wait(0.2)
+	block_rsp = block(WIN, 3, OBJSET, curr_TOD, block_seq, blk_conj, ols, disp_objs, static_obj=[M_GAMMA])
 	if LOG_FLAG == True:
 		with open(DIRECTORY + "Sub_resp.csv", "a") as outfile:
 			for rind in range(len(block_rsp)):
@@ -451,7 +448,7 @@ def main():
 	cont_disp1 = visual.TextBox2(WIN, "(This is the end of the experiment. You may now leave and report to the experimenter.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)
 	any_cont(WIN, ABORT_KEY, [test_disp_start, cont_disp0])
 	core.wait(0.4)
-	block_rsp = block(WIN, "T3", OBJSET, curr_TOD, test_seq, blk_conj, ols, disp_objs, show_truth = False, static_obj=[SOLUTION_TANK])
+	block_rsp = block(WIN, "T3", OBJSET, curr_TOD, test_seq, blk_conj, ols, disp_objs, show_truth = False, static_obj=[M_GAMMA])
 	if LOG_FLAG == True:
 		with open(DIRECTORY + "Sub_resp.csv", "a") as outfile:
 			for rind in range(len(block_rsp)):
@@ -580,12 +577,12 @@ def starter_win(win, disp_objs = []):
 
 	# Background Messages 1
 	starter_msg0 = visual.TextBox2(win, "Background Story:", pos = (0,7), size = [41, None], alignment = 'left', letterHeight = 1.6)
-	starter_msg1 = visual.TextBox2(win,"     You are a newly employed biologist in the Deep Rock Corporate and are assigned to the F-302 lab to investigate a group of exotic artifacts. The artifacts resemble simple geometric shapes and are otherwise unimpressive. However, earlier reports indicate that these artifacts may act as enzymes to facilitate the growth of some lucrative alien plant species. Your task is to investigate these artifacts.", pos = (0,-2), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	starter_msg1 = visual.TextBox2(win,"     You are a newly employed physicist in the Deep Rock Corporate and are assigned to the F-302 lab to investigate a group of exotic artifacts. The artifacts resemble simple geometric shapes and are otherwise unimpressive. However, earlier reports indicate that these artifacts can be inserted into three kinds of alien machines; under correct circumstances, they are observed to emit light, produce heat, or even explode. Your task is to investigate these artifacts.", pos = (0,-2), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [starter_msg0, starter_msg1] + disp_objs)
 	core.wait(0.2)
 	
 	# Background Messages 2
-	msg1 = visual.TextBox2(win,"The corporation has uncovered a number of artifacts, some of which are displayed above. They all differ by their colors, shapes, and textures. Previous investigation reveals that these features are the only factors that dictate their potency as enzymes; other details do not matter.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	msg1 = visual.TextBox2(win,"The corporation has uncovered a number of artifacts, some of which are displayed above. They all differ by their colors, shapes, and textures. Previous investigation reveals that these are the only factors that govern the reaction of artifacts; other details do not matter.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	obj0 = visual.ImageStim(win, "rsc/2O3F2D/rcg.png", pos = (18, 12))
 	obj1 = visual.ImageStim(win, "rsc/2O3F2D/rca.png", pos = (6, 12))
 	obj2 = visual.ImageStim(win, "rsc/2O3F2D/rtg.png", pos = (-6, 12))
@@ -598,15 +595,14 @@ def starter_win(win, disp_objs = []):
 	core.wait(0.2)
 
 	# Background Messages 2.5
-	msg1 = visual.TextBox2(win,"To utilize these artifacts, previous scientists drentch the artifacts into a solution for 24 hours before planting alien plant seeds with them. Currently, the enzyme enriched solution is known to facilitate the growth of alien plants alpha, beta, and gamma. An illustration of enzyme enriched solution is shown above.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
-	SOLUTION_TANK = visual.ImageStim(win, "rsc/2O3F2D/Solutions.png", pos = (1.5, 6))
-	obj1 = visual.ImageStim(win, "rsc/2O3F2D/rcg.png", pos = (OBJ_LINSPACE_AB[0],OBJ_HEIGHT))
-	obj2 = visual.ImageStim(win, "rsc/2O3F2D/bta.png", pos = (OBJ_LINSPACE_AB[1],OBJ_HEIGHT))
-	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [msg1, SOLUTION_TANK, obj1, obj2] + disp_objs)
+	msg1 = visual.TextBox2(win,"The corporation has also uncovered three kinds of alien machines: alpha, beta, and gamma (machine gamma is shown above). While alpha and beta has one slot, gamma has two. When correct artifacts are inserted, these machines will emit light, produce heat, and trigger explosions respectively.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	M_GAMMA_S = visual.ImageStim(win, "rsc/2O3F2D/gamma_s.png")
+	M_GAMMA_S.pos = (0, 7)
+	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [msg1, M_GAMMA_S] + disp_objs)
 	core.wait(0.2)
 
 	# Background Messages 3
-	msg1 = visual.TextBox2(win,"The experiments are divided into three blocks, through wich you will investigate the behavior of artifacts in cultivating plants. In each block, you will go through experimental trials where the solution is enriched with the artifacts before being planted with alien plant seeds, and you will be asked to predict whether they will facilitate the growth of plant alpha/beta/gamma. The actual outcome will be shown after you submit your prediction. At first, you will have to guess, but based on the feedback you receive you should gradually learn the what kind of artifacts facilitate plant growths. \n\nTo help you understand the trial structure, let’s go through a few practice trials. Here, the solution is enriched with two enzymes to grow plant gamma. You will be prompted to predict whether gamma will grow.", pos = (0,-2), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	msg1 = visual.TextBox2(win,"The experiments are divided into three blocks, through wich you will investigate the behavior of artifacts in machine alpha, beta, and gamma. In each block, you will go through experimental trials where artifacts are inserted into the machines, and you will be asked to predict whether they will produce light / emit heat / explode. Their actual reaction will be shown after you submit your prediction. At first, you will have to guess, but based on the feedback you receive you should gradually learn the rules that govern these reactions. \n\nTo help you understand the trial structure, let’s go through a few practice trials. Here, two artifacts are probed for an explosion in machine gamma. You will be prompted to predict whether an explosion will happen.", pos = (0,-2), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [msg1] + disp_objs)
 	core.wait(0.2)
 
