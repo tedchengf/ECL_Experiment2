@@ -119,8 +119,8 @@ def main():
 	# WIN = visual.Window([1728, 1117], monitor="testMonitor", units="deg", fullscr = True, useRetina = True)
 	# WIN = visual.Window([1728, 1117], monitor="testMonitor", units="deg",
 	# fullscr = False, useRetina = True, screen = 1)
-	WIN = visual.Window([2560, 1440], monitor="testMonitor", units="deg", fullscr = False, useRetina = True, screen = 2)
-	# WIN = visual.Window([2560, 1440], monitor="testMonitor", units="deg", fullscr = True, useRetina = True, screen = 1)
+	# WIN = visual.Window([2560, 1440], monitor="testMonitor", units="deg", fullscr = False, useRetina = True, screen = 2)
+	WIN = visual.Window([2560, 1440], monitor="testMonitor", units="deg", fullscr = True, useRetina = True, screen = 1)
 	global OBJ_LINSPACE_A, OBJ_LINSPACE_AB, OBJ_HEIGHT
 	OBJ_LINSPACE_A = [0]
 	OBJ_LINSPACE_AB = [-9, 9]
