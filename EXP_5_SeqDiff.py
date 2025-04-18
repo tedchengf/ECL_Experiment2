@@ -117,10 +117,10 @@ def main():
 	
 	# Presentation Settings
 	# WIN = visual.Window([1728, 1117], monitor="testMonitor", units="deg", fullscr = True, useRetina = True)
-	# WIN = visual.Window([1728, 1117], monitor="testMonitor", units="deg",
-	# fullscr = False, useRetina = True, screen = 1)
+	WIN = visual.Window([1728, 1117], monitor="testMonitor", units="deg",
+	fullscr = False, useRetina = True, screen = 1)
 	# WIN = visual.Window([2560, 1440], monitor="testMonitor", units="deg", fullscr = False, useRetina = True, screen = 2)
-	WIN = visual.Window([2560, 1440], monitor="testMonitor", units="deg", fullscr = True, useRetina = True, screen = 1)
+	# WIN = visual.Window([2560, 1440], monitor="testMonitor", units="deg", fullscr = True, useRetina = True, screen = 1)
 	global OBJ_LINSPACE_A, OBJ_LINSPACE_AB, OBJ_HEIGHT
 	OBJ_LINSPACE_A = [0]
 	OBJ_LINSPACE_AB = [-9, 9]
@@ -315,8 +315,8 @@ def main():
 		OBJSET = OBJ_A_DICTS
 		test_seq = []
 		for seq in SIG_1obj.sequences: test_seq.append(seq.shuffle())
-		block_disp_start = visual.TextBox2(WIN, "Let's start with the first experimental block. In this block, you will go through 20 trials where the solution is enriched with a single artifact to grow plant alpha. You should try your best to learn the artifacts that work as enzyme here.", alignment = 'left', letterHeight = 0.8)
-		test_disp_start = visual.TextBox2(WIN, "Now that you have gone through 20 trials, you probably have some ideas about what artifacts can be used as enzymes here. To demonstrate your knowledge, you will go through 8 test trials and provide your predictions again; except that this time no feedback will be provided.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
+		block_disp_start = visual.TextBox2(WIN, "Let's start with the first experimental block. In this block, you will go through 20 trials where the solution is enriched with a single artifact to grow plant alpha. You should try your best to learn the minerals that work as catalysts here.", alignment = 'left', letterHeight = 0.8)
+		test_disp_start = visual.TextBox2(WIN, "Now that you have gone through 20 trials, you probably have some ideas about what minerals can be used as catalysts here. To demonstrate your knowledge, you will go through 8 test trials and provide your predictions again; except that this time no feedback will be provided.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
 	elif conj_seq == "DW":
 		correct_seq, incorrect_seq = seq_handler(SIG_1obj, SIG_1obj.sequences, Conj_B, 8, 12)
 		blk_conj = Conj_A
@@ -325,10 +325,10 @@ def main():
 		OBJSET = OBJ_B_DICTS
 		test_seq = []
 		for seq in SIG_1obj.sequences: test_seq.append(seq.shuffle())
-		block_disp_start = visual.TextBox2(WIN, "Let's start with the first experimental block. In this block, you will go through 20 trials where the solution is enriched with a single artifact to grow plant alpha. You should try your best to learn the artifacts that work as enzyme here.", alignment = 'left', letterHeight = 0.8)
-		test_disp_start = visual.TextBox2(WIN, "Now that you have gone through 20 trials, you probably have some ideas about what artifacts can be used as enzymes here. To demonstrate your knowledge, you will go through 8 test trials and provide your predictions again; except that this time no feedback will be provided.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
+		block_disp_start = visual.TextBox2(WIN, "Let's start with the first experimental block. In this block, you will go through 20 trials where the solution is enriched with a single artifact to grow plant alpha. You should try your best to learn the minerals that work as catalysts here.", alignment = 'left', letterHeight = 0.8)
+		test_disp_start = visual.TextBox2(WIN, "Now that you have gone through 20 trials, you probably have some ideas about what minerals can be used as catalysts here. To demonstrate your knowledge, you will go through 8 test trials and provide your predictions again; except that this time no feedback will be provided.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
 	cont_disp0 = visual.TextBox2(WIN, "(This is the start of block 1. Press any key to start.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)
-	block_obj_start = visual.TextBox2(WIN, "Above are the 8 artifacts that will be investigated in this block. They differ in their sizes, shapes, and textures.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	block_obj_start = visual.TextBox2(WIN, "Above are the 8 minerals that will be investigated in this block. They differ in their sizes, shapes, and textures.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	# block_obj_start_s = visual.TextBox2(WIN, "Above is the machine alpha that will be used in this block. It has one slot and may emit light.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	block_seq = correct_seq + incorrect_seq
 	random.shuffle(block_seq)
@@ -369,8 +369,8 @@ def main():
 		OBJSET = OBJ_A_DICTS
 		test_seq = []
 		for seq in SIG_1obj.sequences: test_seq.append(seq.shuffle())
-		block_disp_start = visual.TextBox2(WIN, "This is the second experimental block. In this block, you will go through 20 trials where the solution is enriched with a single artifact to grow plant beta. You should try your best to learn the artifacts that work as enzyme here.", alignment = 'left', letterHeight = 0.8)
-		test_disp_start = visual.TextBox2(WIN, "Now that you have gone through 20 trials, you probably have some ideas about what artifacts can be used as enzymes here. To demonstrate your knowledge, you will go through 8 test trials.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
+		block_disp_start = visual.TextBox2(WIN, "This is the second experimental block. In this block, you will go through 20 trials where the solution is enriched with a single artifact to grow plant beta. You should try your best to learn the minerals that work as catalysts here.", alignment = 'left', letterHeight = 0.8)
+		test_disp_start = visual.TextBox2(WIN, "Now that you have gone through 20 trials, you probably have some ideas about what minerals can be used as catalysts here. To demonstrate your knowledge, you will go through 8 test trials.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
 	elif conj_seq == "DW":
 		correct_seq, incorrect_seq = seq_handler(SIG_1obj, SIG_1obj.sequences, Conj_B, 8, 12)
 		blk_conj = Conj_B
@@ -379,12 +379,12 @@ def main():
 		OBJSET = OBJ_C_DICTS
 		test_seq = []
 		for seq in SIG_1obj.sequences: test_seq.append(seq.shuffle())
-		block_disp_start = visual.TextBox2(WIN, "This is the second experimental block. In this block, you will go through 20 trials where the solution is enriched with a single artifact to grow plant beta. You should try your best to learn the artifacts that work as enzyme here.", alignment = 'left', letterHeight = 0.8)
-		test_disp_start = visual.TextBox2(WIN, "Now that you have gone through 20 trials, you probably have some ideas about what artifacts can be used as enzymes here. To demonstrate your knowledge, you will go through 8 test trials.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
+		block_disp_start = visual.TextBox2(WIN, "This is the second experimental block. In this block, you will go through 20 trials where the solution is enriched with a single artifact to grow plant beta. You should try your best to learn the minerals that work as s here.", alignment = 'left', letterHeight = 0.8)
+		test_disp_start = visual.TextBox2(WIN, "Now that you have gone through 20 trials, you probably have some ideas about what minerals can be used as catalysts here. To demonstrate your knowledge, you will go through 8 test trials.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
 	
 	# block_obj_start_s = visual.TextBox2(WIN, "Above is the machine beta that will be used in this block. It has one slot and may produce heat.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	cont_disp0 = visual.TextBox2(WIN, "(This is the start of block 2. Press any key to start.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)	
-	block_obj_start = visual.TextBox2(WIN, "Above are the 8 artifacts that will be investigated in this block. They differ in their sizes, shapes, and textures.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	block_obj_start = visual.TextBox2(WIN, "Above are the 8 minerals that will be investigated in this block. They differ in their sizes, shapes, and textures.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	block_seq = correct_seq + incorrect_seq
 	random.shuffle(block_seq)
 	any_cont(WIN, ABORT_KEY, [block_disp_start, cont_disp0])
@@ -424,11 +424,11 @@ def main():
 	OBJSET = OBJ_A_DICTS
 	test_seq = []
 	for seq in SIG_2obj.sequences: test_seq.append(seq.shuffle())
-	block_disp_start = visual.TextBox2(WIN, "Let's start with the third and final experimental block. In this block, you will go through 80 trials where the solution is enriched with two artifacts to grow plant gamma. You should try your best to learn the artifacts that work as enzyme here.", alignment = 'left', letterHeight = 0.8)
-	test_disp_start = visual.TextBox2(WIN, "Now that you have gone through 80 trials, you probably have some ideas about what artifacts can be used as enzymes here. To demonstrate your knowledge, you will now go through 36 test trials.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
+	block_disp_start = visual.TextBox2(WIN, "Let's start with the third and final experimental block. In this block, you will go through 80 trials where the solution is enriched with two minerals to grow plant gamma. Note that all previous investigations with only one mineral failed to grow plant gamma, so the corporate is now trying enrichment with two minerals. You should try your best to learn the minerals that work as catalysts here.", alignment = 'left', letterHeight = 0.8)
+	test_disp_start = visual.TextBox2(WIN, "Now that you have gone through 80 trials, you probably have some ideas about what combination of minerals can be used as catalysts here. To demonstrate your knowledge, you will now go through 36 test trials.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
 
 	cont_disp0 = visual.TextBox2(WIN, "(This is the start of block 3. Press any key to start.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)
-	block_obj_start = visual.TextBox2(WIN, "Above are the 8 artifacts that will be investigated in this block. They differ in their sizes, shapes, and textures; their positions play no role whatsoever.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	block_obj_start = visual.TextBox2(WIN, "Above are the 8 minerals that will be investigated in this block. They differ in their sizes, shapes, and textures; their positions play no role whatsoever.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	# block_obj_start_s = visual.TextBox2(WIN, "Above is the machine gamma that will be used in this block. It has two slots and may trigger an explosion.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	block_seq = correct_seq + incorrect_seq
 	random.shuffle(block_seq)
@@ -580,12 +580,12 @@ def starter_win(win, disp_objs = []):
 
 	# Background Messages 1
 	starter_msg0 = visual.TextBox2(win, "Background Story:", pos = (0,7), size = [41, None], alignment = 'left', letterHeight = 1.6)
-	starter_msg1 = visual.TextBox2(win,"     You are a newly employed biologist in the Deep Rock Corporate and are assigned to the F-302 lab to investigate a group of exotic artifacts. The artifacts resemble simple geometric shapes and are otherwise unimpressive. However, earlier reports indicate that these artifacts may act as enzymes to facilitate the growth of some lucrative alien plant species. Your task is to investigate this potential.", pos = (0,-2), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	starter_msg1 = visual.TextBox2(win,"     You are a newly employed biologist in the Deep Rock Corporate and are assigned to the F-302 lab to investigate a group of exotic minerals. The minerals resemble simple geometric shapes and are otherwise unimpressive. However, earlier reports indicate that these minerals may act as catalysts to facilitate the growth of some lucrative alien plant species. Your task is to investigate this potential.", pos = (0,-2), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [starter_msg0, starter_msg1] + disp_objs)
 	core.wait(0.2)
 	
 	# Background Messages 2
-	msg1 = visual.TextBox2(win,"The corporation has uncovered a number of artifacts, some of which are displayed above. They all differ by their colors, shapes, and textures. Previous investigation reveals that these features are the only factors that dictate their potency as enzymes; other details do not matter.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	msg1 = visual.TextBox2(win,"The corporation has uncovered a number of minerals, some of which are displayed above. They all differ by their colors, shapes, and textures. Previous investigation reveals that these features are the only factors that dictate their potency as catalysts; other details do not matter.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	obj0 = visual.ImageStim(win, "rsc/2O3F2D/rcg.png", pos = (18, 12))
 	obj1 = visual.ImageStim(win, "rsc/2O3F2D/rca.png", pos = (6, 12))
 	obj2 = visual.ImageStim(win, "rsc/2O3F2D/rtg.png", pos = (-6, 12))
@@ -598,7 +598,7 @@ def starter_win(win, disp_objs = []):
 	core.wait(0.2)
 
 	# Background Messages 2.5
-	msg1 = visual.TextBox2(win,"To utilize these artifacts, you need to drentch the artifacts into a solution for 24 hours before planting alien plant seeds with them. Currently, the enzyme enriched solution is known to facilitate the growth of alien plants alpha, beta, and gamma. An illustration of enzyme enriched solution is shown above.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	msg1 = visual.TextBox2(win,"To utilize these minerals, you need to drentch the minerals into a solution for 24 hours before planting alien plant seeds with them. Currently, the catalyst enriched solution is known to facilitate the growth of alien plants alpha, beta, and gamma. An illustration of catalyst enriched solution is shown above.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	SOLUTION_TANK = visual.ImageStim(win, "rsc/2O3F2D/Solutions.png", pos = (1.5, 6))
 	obj1 = visual.ImageStim(win, "rsc/2O3F2D/rcg.png", pos = (OBJ_LINSPACE_AB[0],OBJ_HEIGHT))
 	obj2 = visual.ImageStim(win, "rsc/2O3F2D/bta.png", pos = (OBJ_LINSPACE_AB[1],OBJ_HEIGHT))
@@ -606,7 +606,7 @@ def starter_win(win, disp_objs = []):
 	core.wait(0.2)
 
 	# Background Messages 3
-	msg1 = visual.TextBox2(win,"The experiments are divided into three blocks, through wich you will investigate what artifacts can be used as enzymes to cultivate alien plants. In each block, you will go through experimental trials where the solution is enriched with the artifacts before being planted with alien plant seeds, and you will be asked to predict whether they will facilitate the growth of plant alpha/beta/gamma. The actual outcome will be shown after you submit your prediction. At first, you will have to guess, but based on the feedback you receive you should gradually learn the kinds of artifacts that facilitate plant growths. \n\nTo help you understand the trial structure, let’s go through a few practice trials. Here, the solution is enriched with two enzymes to grow plant gamma. You will be prompted to predict whether gamma will grow.", pos = (0,-2), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	msg1 = visual.TextBox2(win,"The experiments are divided into three blocks, through wich you will investigate what minerals can be used as catalysts to cultivate alien plants. In each block, you will go through experimental trials where the solution is enriched with the minerals before being planted with alien plant seeds, and you will be asked to predict whether they will facilitate the growth of plant alpha/beta/gamma. The actual outcome will be shown after you submit your prediction. At first, you will have to guess, but based on the feedback you receive you should gradually learn the kinds of minerals that facilitate plant growths. \n\nTo help you understand the trial structure, let’s go through a few practice trials. Here, the solution is enriched with two catalysts to grow plant gamma. You will be prompted to predict whether gamma will grow.", pos = (0,-2), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [msg1] + disp_objs)
 	core.wait(0.2)
 
