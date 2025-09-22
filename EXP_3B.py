@@ -49,7 +49,7 @@ def main():
 
 	# # Testing Formula
 	# test_SIG = stimuli.Sigma([FILL, SHAPE], ["fill", "shape"], R, generation_mode = GENERATION_MODE)
-	# test_conj = test_SIG.form_conjunct(BOOL_1, conjunct_type="Sum")
+	# test_conj = test_SIG.form_conjunct(CNJ_1, conjunct_type="Product")
 	# for seq in test_SIG.sequences:
 	# 	print(test_conj.accepts(seq))
 	# 	print(seq.hierarchical_rep())

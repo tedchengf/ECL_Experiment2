@@ -47,6 +47,53 @@ def main():
 		   ]	   
 		 	 ]
 
+	T1 = [
+		   [
+			  ("=1", "+0"),
+			  ("=1", "+0"),
+			  ("=1", "+0"),
+		   ]
+		 ] 
+	T2 = [
+		   [
+			  ("=1", "+0"),
+			  ("+0", "+0"),
+			  ("+0", "+0"),
+		   ]
+		   ,
+		   [
+			  ("+0", "+0"),
+			  ("=1", "+0"),
+			  ("=1", "+0"),
+		   ]	   
+		 ]
+	B1 = [
+		   [
+			  ("=1", "+0"),
+			  ("=1", "+0"),
+			  ("+0", "+0"),
+		   ]
+		 ]
+	B2 = [
+		   [
+			  ("=1", "+0"),
+			  ("+0", "+0"),
+			  ("+0", "+0"),
+		   ]
+		   ,
+		   [
+			  ("+0", "+0"),
+			  ("=1", "+0"),
+			  ("+0", "+0"),
+		   ]	   
+		 ]
+	S1 = [
+		   [
+			  ("=1", "+0"),
+			  ("+0", "+0"),
+			  ("+0", "+0"),
+		   ]
+		 ]
 
 	GL = [
 			(19, 19, 19),
@@ -74,9 +121,10 @@ def main():
 
 	# Testing Formula
 	test_SIG = stimuli.Sigma([FILL, SHAPE, SIZE], ["fill", "shape", "size"], 2, generation_mode = GENERATION_MODE)
-	test_conj = test_SIG.form_conjunct(OBJ_AB, conjunct_type="Product")
+	test_conj = test_SIG.form_conjunct(S1, conjunct_type="Product")
 	for seq in test_SIG.sequences:
-		print(np.prod(seq.get_pid()), test_conj.accepts(seq))
+		print(str(np.prod(seq.get_pid())) + ": " + str(test_conj.accepts(seq)).lower() + ",")
+		# print(np.prod(seq.get_pid()), test_conj.accepts(seq))
 		# print(seq.hierarchical_rep())
 		# print("########")
 	print(len(test_SIG.sequences))
