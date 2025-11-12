@@ -3,6 +3,7 @@ import time
 import random
 from itertools import product 
 from psychopy import visual, core, data, event, sound
+from psychopy_legacy.visual.ratingscale import RatingScale
 import gc
 import os
 
@@ -433,7 +434,7 @@ def trial(win, obj_dicts, trial_obj_dict, Sequence, formula, obj_linspace, disp_
 	Incorrect_sound = trial_obj_dict["Incorrect_sound"]
 	Correct_text = trial_obj_dict["Correct_text"]
 	Incorrect_text = trial_obj_dict["Incorrect_text"]
-	ratingScale = visual.RatingScale(win, low = 0, high = 5, choices = ["\n0\nBack to\nStimuli", "\n1\nJust\nguessing", "\n2\n\n", "\n3\n\n", "\n4\n\n", "\n5\nVery\nConfident"], scale = "How confident are you in your prediction?", markerColor = "orange", pos = (0,0), size = 1.2, stretch = 1.4, textSize = 0.6, acceptPreText = "Your rating: ", acceptKeys = ['return', 'space'], skipKeys = None, showValue = False)
+	ratingScale = RatingScale(win, low = 0, high = 5, choices = ["\n0\nBack to\nStimuli", "\n1\nJust\nguessing", "\n2\n\n", "\n3\n\n", "\n4\n\n", "\n5\nVery\nConfident"], scale = "How confident are you in your prediction?", markerColor = "orange", pos = (0,0), size = 1.2, stretch = 1.4, textSize = 0.6, acceptPreText = "Your rating: ", acceptKeys = ['return', 'space'], skipKeys = None, showValue = False)
 	# choices = ["(0)\nBack to\nStimuli", "(1)\nJust guessing\n", "(2)\n\n", "(3)\n\n", "(4)\n\n", "(5)\nVery Confident\n"]
 	ground_truth = Sequence.satisfies(formula)
 	
