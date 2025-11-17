@@ -123,19 +123,19 @@ def main():
 
 	###########################################################################
 
-	# # Testing Formula
-	# test_SIG = stimuli.Sigma([["r", "g", "b"], ["c","t"]], ["fill", "shape"], R, generation_mode = GENERATION_MODE)
-	# # for seq in test_SIG.sequences: 
-	# # 	for obj in seq: print(obj)
-	# # 	print("########")
-	# print(len(test_SIG.sequences))
-	# test_conj = test_SIG.form_conjunct(TF, conjunct_type="Product")
-	# acc_count = 0
-	# for seq in test_SIG.sequences:
-	# 	if test_conj.accepts(seq): acc_count += 1
-	# 	# print(test_conj.accepts(seq) ,seq)
-	# print(acc_count)
-	# exit()
+	# Testing Formula
+	test_SIG = stimuli.Sigma([["r", "b"], ["c","t"], ["l","s"]], ["fill", "shape", "size"], R, generation_mode = "Multiset Permutation")
+	# for seq in test_SIG.sequences: 
+	# 	for obj in seq: print(obj)
+	# 	print("########")
+	print(len(test_SIG.sequences))
+	test_conj = test_SIG.form_conjunct(B2, conjunct_type="Seq")
+	acc_count = 0
+	for seq in test_SIG.sequences:
+		if test_conj.accepts(seq): acc_count += 1
+		print(test_conj.accepts(seq) , seq.summarize())
+	print(acc_count)
+	exit()
 
 	# Init Sigma
 	SIG = stimuli.Sigma([FILL, SHAPE, SIZE], ["fill", "shape", "size"], R, generation_mode = GENERATION_MODE)
