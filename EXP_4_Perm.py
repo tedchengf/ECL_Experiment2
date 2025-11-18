@@ -21,84 +21,57 @@ def main():
 	GENERATION_MODE = "Multiset Permutation"
 
 	# Formula Pool
-	T1 = [
-		   [
-			  ("=1", "+0"),
-			  ("=1", "+0"),
-			  ("=1", "+0"),
-		   ]
-		 ] 
-	T2 = [
-		   [
-			  ("=1", "+0"),
+	P1 = [
+			[
+			  ("=1", "=0"),
+			  ("=1", "=0"),
+			  ("+0", "+0"),
+			]
+			,
+			[
 			  ("+0", "+0"),
 			  ("+0", "+0"),
-		   ]
-		   ,
-		   [
 			  ("+0", "+0"),
-			  ("=1", "+0"),
-			  ("=1", "+0"),
-		   ]	   
+			]
 		 ]
-	B1 = [
-		   [
-			  ("=1", "+0"),
-			  ("=1", "+0"),
+	P2 = [
+			[
+			  ("=1", "=0"),
 			  ("+0", "+0"),
-		   ]
+			  ("+0", "+0"),
+			]
+			,
+			[
+			  ("+0", "+0"),
+			  ("=1", "=0"),
+			  ("+0", "+0"),
+			]
 		 ]
-	B2 = [
-		   [
-			  ("=1", "+0"),
+	P3 = [
+			[
 			  ("+0", "+0"),
 			  ("+0", "+0"),
-		   ]
-		   ,
-		   [
 			  ("+0", "+0"),
-			  ("=1", "+0"),
+			]
+			,
+			[
 			  ("+0", "+0"),
-		   ]	   
+			  ("=0", "=1"),
+			  ("=0", "=1"),
+			]
 		 ]
-	S1 = [
-		   [
-			  ("=1", "+0"),
+	P4 = [
+			[
+			  ("+0", "+0"),
+			  ("=0", "=1"),
+			  ("+0", "+0"),
+			]
+			,
+			[
 			  ("+0", "+0"),
 			  ("+0", "+0"),
-		   ]
-		 ]
-	D2 = [
-		   [
-			  ("=1", "+0"),
-			  ("=1", "+0"),
-			  ("+0", "+0"),
-		   ]
-		 ]
-	D3 = [
-		   [
-			  ("=1", "+0"),
-			  ("+0", "+0"),
-			  ("=1", "+0"),
-		   ]
-		 ]
-	D4 = [
-		   [
-			  ("+0", "+0"),
-			  ("=1", "+0"),
-			  ("=1", "+0"),
-		   ]
-		 ]
-	TF = [
-		   [
-			  ("=1", "+0"),
-			  ("+0", "+0"),
-		   ]
-		   ,
-		   [
-			  ("+0", "+0"),
-			  ("+0", "=1"),
-		   ]	   
+			  ("=0", "=1"),
+			]
 		 ]
 	GL = [
 			(19, 19, 19),
@@ -148,24 +121,20 @@ def main():
 	conj_mode = input("Enter Formula Mode: ")
 	while conj_mode not in ("T1", "T2", "B1", "B2", "S1", "D1"):
 		conj_mode = input("Incorrect Format; Enter Formula Mode Again: ")
-	if conj_mode == "T1": 
+	if conj_mode == "P1": 
 		prod_conj = SIG.form_conjunct(T1, conjunct_type = "Product")
 		CORRECT = 32
 		INCORRECT = 48
-	if conj_mode == "T2": 
+	if conj_mode == "P2": 
 		prod_conj = SIG.form_conjunct(T2, conjunct_type = "Product")
 		CORRECT = 32
 		INCORRECT = 48
-	if conj_mode == "B1": 
+	if conj_mode == "P3": 
 		prod_conj = SIG.form_conjunct(B1, conjunct_type = "Product")
 		CORRECT = 32
 		INCORRECT = 48
-	if conj_mode == "B2": 
+	if conj_mode == "P4": 
 		prod_conj = SIG.form_conjunct(B2, conjunct_type = "Product")
-		CORRECT = 32
-		INCORRECT = 48
-	if conj_mode == "S1": 
-		prod_conj = SIG.form_conjunct(S1, conjunct_type = "Product")
 		CORRECT = 32
 		INCORRECT = 48
 	# if conj_mode == "D1":
