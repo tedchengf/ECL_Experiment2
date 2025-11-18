@@ -386,14 +386,14 @@ def starter_win(win, disp_objs = []):
 	
 	# More Background notes
 	msg1 = visual.TextBox2(win,"Before going into the task, You want to familiarize yourself with the presentation software. Above are all 8 objects. They vary in color and shape.", pos = (0,-14), size = [40, None], alignment = 'left', letterHeight = 0.8)
-	obj0 = visual.ImageStim(win, "rsc/2O3F2D/rcl.png", pos = (18, 12))
-	obj1 = visual.ImageStim(win, "rsc/2O3F2D/rcs.png", pos = (6, 12))
-	obj2 = visual.ImageStim(win, "rsc/2O3F2D/rtl.png", pos = (-6, 12))
-	obj3 = visual.ImageStim(win, "rsc/2O3F2D/rts.png", pos = (-18, 12))
-	obj4 = visual.ImageStim(win, "rsc/2O3F2D/bcl.png", pos = (18, -3))
-	obj5 = visual.ImageStim(win, "rsc/2O3F2D/bcs.png", pos = (6, -3))
-	obj6 = visual.ImageStim(win, "rsc/2O3F2D/btl.png", pos = (-6, -3))
-	obj7 = visual.ImageStim(win, "rsc/2O3F2D/bts.png", pos = (-18, -3))
+	obj0 = visual.ImageStim(win, "rsc/2O3F2D/rcw.png", pos = (18, 12))
+	obj1 = visual.ImageStim(win, "rsc/2O3F2D/rcd.png", pos = (6, 12))
+	obj2 = visual.ImageStim(win, "rsc/2O3F2D/rtw.png", pos = (-6, 12))
+	obj3 = visual.ImageStim(win, "rsc/2O3F2D/rtd.png", pos = (-18, 12))
+	obj4 = visual.ImageStim(win, "rsc/2O3F2D/bcw.png", pos = (18, -3))
+	obj5 = visual.ImageStim(win, "rsc/2O3F2D/bcd.png", pos = (6, -3))
+	obj6 = visual.ImageStim(win, "rsc/2O3F2D/btw.png", pos = (-6, -3))
+	obj7 = visual.ImageStim(win, "rsc/2O3F2D/btd.png", pos = (-18, -3))
 	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [msg1, obj0, obj1, obj2, obj3, obj4, obj5, obj6, obj7] + disp_objs)
 	core.wait(0.2)
 
