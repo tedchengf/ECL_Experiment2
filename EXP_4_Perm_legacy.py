@@ -118,22 +118,22 @@ def main():
 	while os.path.exists(DIRECTORY + sub_code):
 		sub_code = input("Duplicate Subject code. Enter a new code again: ")
 	conj_mode = input("Enter Formula Mode: ")
-	while conj_mode not in ("T1", "T2", "B1", "B2", "S1", "D1"):
+	while conj_mode not in ("P1", "P2", "P3", "P4"):
 		conj_mode = input("Incorrect Format; Enter Formula Mode Again: ")
 	if conj_mode == "P1": 
-		prod_conj = SIG.form_conjunct(T1, conjunct_type = "Product")
+		prod_conj = SIG.form_conjunct(P1, conjunct_type = "Product")
 		CORRECT = 32
 		INCORRECT = 48
 	if conj_mode == "P2": 
-		prod_conj = SIG.form_conjunct(T2, conjunct_type = "Product")
+		prod_conj = SIG.form_conjunct(P2, conjunct_type = "Product")
 		CORRECT = 32
 		INCORRECT = 48
 	if conj_mode == "P3": 
-		prod_conj = SIG.form_conjunct(B1, conjunct_type = "Product")
+		prod_conj = SIG.form_conjunct(P3, conjunct_type = "Product")
 		CORRECT = 32
 		INCORRECT = 48
 	if conj_mode == "P4": 
-		prod_conj = SIG.form_conjunct(B2, conjunct_type = "Product")
+		prod_conj = SIG.form_conjunct(P4, conjunct_type = "Product")
 		CORRECT = 32
 		INCORRECT = 48
 	# if conj_mode == "D1":
