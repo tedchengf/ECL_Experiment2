@@ -9,7 +9,7 @@ import os
 
 import stimuli
 
-LOG_FLAG = False
+LOG_FLAG = True
 
 
 def main():
