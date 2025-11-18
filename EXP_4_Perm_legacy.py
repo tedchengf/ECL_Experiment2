@@ -8,7 +8,8 @@ import os
 
 import stimuli
 
-LOG_FLAG = True
+LOG_FLAG = False
+
 
 def main():
 	# Sigma Settings
@@ -19,60 +20,85 @@ def main():
 	GENERATION_MODE = "Multiset Permutation"
 
 	# Formula Pool
-	P1 = [
-			[
-			  ("=1", "=0"),
-			  ("=1", "=0"),
+	T1 = [
+		   [
+			  ("=1", "+0"),
+			  ("=1", "+0"),
+			  ("=1", "+0"),
+		   ]
+		 ] 
+	T2 = [
+		   [
+			  ("=1", "+0"),
 			  ("+0", "+0"),
-			]
-			,
-			[
 			  ("+0", "+0"),
+		   ]
+		   ,
+		   [
 			  ("+0", "+0"),
-			  ("+0", "+0"),
-			]
+			  ("=1", "+0"),
+			  ("=1", "+0"),
+		   ]	   
 		 ]
-	P2 = [
-			[
-			  ("=1", "=0"),
+	B1 = [
+		   [
+			  ("=1", "+0"),
+			  ("=1", "+0"),
 			  ("+0", "+0"),
-			  ("+0", "+0"),
-			]
-			,
-			[
-			  ("+0", "+0"),
-			  ("=1", "=0"),
-			  ("+0", "+0"),
-			]
+		   ]
 		 ]
-	P3 = [
-			[
+	B2 = [
+		   [
+			  ("=1", "+0"),
 			  ("+0", "+0"),
 			  ("+0", "+0"),
+		   ]
+		   ,
+		   [
 			  ("+0", "+0"),
-			]
-			,
-			[
+			  ("=1", "+0"),
 			  ("+0", "+0"),
-			  ("=0", "=1"),
-			  ("=0", "=1"),
-			]
+		   ]	   
 		 ]
-	P4 = [
-			[
-			  ("+0", "+0"),
-			  ("=0", "=1"),
-			  ("+0", "+0"),
-			]
-			,
-			[
+	S1 = [
+		   [
+			  ("=1", "+0"),
 			  ("+0", "+0"),
 			  ("+0", "+0"),
-			  ("=0", "=1"),
-			]
+		   ]
 		 ]
-
-
+	D2 = [
+		   [
+			  ("=1", "+0"),
+			  ("=1", "+0"),
+			  ("+0", "+0"),
+		   ]
+		 ]
+	D3 = [
+		   [
+			  ("=1", "+0"),
+			  ("+0", "+0"),
+			  ("=1", "+0"),
+		   ]
+		 ]
+	D4 = [
+		   [
+			  ("+0", "+0"),
+			  ("=1", "+0"),
+			  ("=1", "+0"),
+		   ]
+		 ]
+	TF = [
+		   [
+			  ("=1", "+0"),
+			  ("+0", "+0"),
+		   ]
+		   ,
+		   [
+			  ("+0", "+0"),
+			  ("+0", "=1"),
+		   ]	   
+		 ]
 	GL = [
 			(19, 19, 19),
 			(19, 13, 19),
@@ -91,12 +117,25 @@ def main():
 			(13, 17, 7),
 		  ]
 
-
 	# Output Settings
 	DIRECTORY = "./rsps/"
 	HEADER = ["Blc", "Seq", "Rsp", "Truth", "Rsp_t1", "Rsp_t2", "Cnfdnc"]
 
 	###########################################################################
+
+	# # Testing Formula
+	# test_SIG = stimuli.Sigma([["r", "b"], ["c","t"], ["l","s"]], ["fill", "shape", "size"], R, generation_mode = "Multiset Permutation")
+	# # for seq in test_SIG.sequences: 
+	# # 	for obj in seq: print(obj)
+	# # 	print("########")
+	# print(len(test_SIG.sequences))
+	# test_conj = test_SIG.form_conjunct(B2, conjunct_type="Seq")
+	# acc_count = 0
+	# for seq in test_SIG.sequences:
+	# 	if test_conj.accepts(seq): acc_count += 1
+	# 	print(test_conj.accepts(seq) , seq.summarize())
+	# print(acc_count)
+	# exit()
 
 	# Init Sigma
 	SIG = stimuli.Sigma([FILL, SHAPE, SIZE], ["fill", "shape", "size"], R, generation_mode = GENERATION_MODE)
@@ -106,25 +145,36 @@ def main():
 	while os.path.exists(DIRECTORY + sub_code):
 		sub_code = input("Duplicate Subject code. Enter a new code again: ")
 	conj_mode = input("Enter Formula Mode: ")
-	while conj_mode not in ("P1", "P2", "P3", "P4"):
+	while conj_mode not in ("T1", "T2", "B1", "B2", "S1", "D1"):
 		conj_mode = input("Incorrect Format; Enter Formula Mode Again: ")
-	if conj_mode == "P1": 
-		prod_conj = SIG.form_conjunct(P1, conjunct_type = "Seq")
-		CORRECT = 64
-		INCORRECT = 96
-	if conj_mode == "P2": 
-		prod_conj = SIG.form_conjunct(P2, conjunct_type = "Seq")
-		CORRECT = 64
-		INCORRECT = 96
-	if conj_mode == "P3": 
-		prod_conj = SIG.form_conjunct(P3, conjunct_type = "Seq")
-		CORRECT = 64
-		INCORRECT = 96
-	if conj_mode == "P4": 
-		prod_conj = SIG.form_conjunct(P4, conjunct_type = "Seq")
-		CORRECT = 64
-		INCORRECT = 96
-
+	if conj_mode == "T1": 
+		prod_conj = SIG.form_conjunct(T1, conjunct_type = "Product")
+		CORRECT = 32
+		INCORRECT = 48
+	if conj_mode == "T2": 
+		prod_conj = SIG.form_conjunct(T2, conjunct_type = "Product")
+		CORRECT = 32
+		INCORRECT = 48
+	if conj_mode == "B1": 
+		prod_conj = SIG.form_conjunct(B1, conjunct_type = "Product")
+		CORRECT = 32
+		INCORRECT = 48
+	if conj_mode == "B2": 
+		prod_conj = SIG.form_conjunct(B2, conjunct_type = "Product")
+		CORRECT = 32
+		INCORRECT = 48
+	if conj_mode == "S1": 
+		prod_conj = SIG.form_conjunct(S1, conjunct_type = "Product")
+		CORRECT = 32
+		INCORRECT = 48
+	# if conj_mode == "D1":
+	# 	conj1 = SIG.form_conjunct(T1, conjunct_type="Product")
+	# 	conj2 = SIG.form_conjunct(D2, conjunct_type="Product")
+	# 	conj3 = SIG.form_conjunct(D3, conjunct_type="Product")
+	# 	conj4 = SIG.form_conjunct(D4, conjunct_type="Product")
+	# 	prod_conj = stimuli.Disjunct(conj1, conj2, conj3, conj4)
+	# 	CORRECT = 32
+	# 	INCORRECT = 48
 	if LOG_FLAG == True:
 		os.makedirs(DIRECTORY + sub_code)
 		DIRECTORY += sub_code + "/"
@@ -213,10 +263,10 @@ def main():
 	core.wait(1)
 
 	# training block 1
-	block_disp_start = visual.TextBox2(WIN, "Now that you are familiar with the presentation software, you are prepared to go through the 160 combinations.", alignment = 'left', letterHeight = 0.8)
-	block_disp_end = visual.TextBox2(WIN, "You have gone through the training and believe that you have more or less gotten down to the sequeences that will trigger explosions. You can take a short rest before going through the test block.", alignment = 'left', pos = (0, 2), letterHeight = 0.8)
-	cont_disp0 = visual.TextBox2(WIN, "(This is the start of the training block. Press any key to start.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)	
-	cont_disp1 = visual.TextBox2(WIN, "(This is the end of the training block. Press any key to continue.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)	
+	block_disp_start = visual.TextBox2(WIN, "Now that you are familiar with the presentation software, you are prepared to go through the 80 sequences.", alignment = 'left', letterHeight = 0.8)
+	block_disp_end = visual.TextBox2(WIN, "You have gone through all 80 sequences once and think that you are onto something. You can take a short rest before the Corporate urge you to go through them again.", alignment = 'left', letterHeight = 0.8)
+	cont_disp0 = visual.TextBox2(WIN, "(This is the start of block 1. Press any key to start.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)	
+	cont_disp1 = visual.TextBox2(WIN, "(This is the end of block 1. Press any key to continue.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)	
 	random.shuffle(block_seq)
 	any_cont(WIN, ABORT_KEY, [block_disp_start, cont_disp0])
 	core.wait(0.4)
@@ -229,14 +279,32 @@ def main():
 	any_cont(WIN, ABORT_KEY, [block_disp_end, cont_disp1])
 	core.wait(0.8)
 
+	# training block 2		
+	block_disp_start = visual.TextBox2(WIN, "You are now ready to go through the sequences again.", alignment = 'center', letterHeight = 0.8)
+	block_disp_end = visual.TextBox2(WIN, "You have gone through the sequences twice and believe that you have more or less gotten down to the sequences that will trigger explosions. You can take a short rest before going through the test block.", alignment = 'left', pos = (0, 2), letterHeight = 0.8)
+	# block_disp_end = visual.TextBox2(WIN, "You have gone through the combinations twice and believe that you have more or less gotten down to the combinations that will trigger explosions. However, just when you are about to submit your report …", alignment = 'left', pos = (0, 2), letterHeight = 0.8)
+	cont_disp0 = visual.TextBox2(WIN, "(This is the start of block 2. Press any key to start.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)	
+	cont_disp1 = visual.TextBox2(WIN, "(This is the end of block 2. Press any key to continue.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)	
+	random.shuffle(block_seq)
+	any_cont(WIN, ABORT_KEY, [block_disp_start, cont_disp0])
+	core.wait(0.4)
+	block_rsp = block(WIN, 2, OBJ_DICTS, TRIAL_OBJ_DICT, block_seq, prod_conj, OBJ_LINSPACE, disp_objs)
+	if LOG_FLAG == True:
+		with open(DIRECTORY + "Sub_resp.csv", "a") as outfile:
+			for rind in range(len(block_rsp)):
+				outfile.write("\t".join(block_rsp[rind].astype(str)))
+				outfile.write("\n")
+	any_cont(WIN, ABORT_KEY, [block_disp_end, cont_disp1])
+	core.wait(0.8)
+
 	# generalization block 1
 	block_seq = []
-	for seq in SIG.sequences: block_seq.append(seq.shuffle())
+	for seq in SIG.sequences: block_seq.append(seq)
 	random.shuffle(block_seq)
-	block_disp_start = visual.TextBox2(WIN, "You are now ready to go through the test block. You will only go through 64 sequeences this time, and no feedback will be provided.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
-	block_disp_end = visual.TextBox2(WIN, "You have gone through the test block and submitted your report to the Corporate. You wondered how you perform, but only the Corporate knows the answer. You gather your thoughts and leave the lab.", alignment = 'left', pos = (0, 2), letterHeight = 0.8)
+	block_disp_start = visual.TextBox2(WIN, "You are now ready to go through the test block. You will only go through 64 sequences this time, and no feedback will be provided.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
+	block_disp_end = visual.TextBox2(WIN, "You have gone through the test block and submitted your report to the Corporate.You wondered how you perform, but only the Corporate knows the answer. You gather your thoughts and leave the lab.", alignment = 'left', pos = (0, 2), letterHeight = 0.8)
 	cont_disp0 = visual.TextBox2(WIN, "(This is the start of the test block. Press any key to start.)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)	
-	cont_disp1 = visual.TextBox2(WIN, "(This is the end of the experiment. Thank you for your participation!)",pos = (0, -3), size = [40, None], alignment = 'center', letterHeight = 0.8)	
+	cont_disp1 = visual.TextBox2(WIN, "(This is the end of the experiment. Thank you for your participation!)",pos = (0, -3), alignment = 'center', letterHeight = 0.8)
 	any_cont(WIN, ABORT_KEY, [block_disp_start, cont_disp0])
 	core.wait(0.4)
 	block_rsp = block(WIN, "G1", OBJ_DICTS, TRIAL_OBJ_DICT, block_seq, prod_conj, OBJ_LINSPACE, disp_objs, show_truth = False)
@@ -247,27 +315,6 @@ def main():
 				outfile.write("\n")
 	any_cont(WIN, ABORT_KEY, [block_disp_end, cont_disp1])
 	core.wait(0.8)
-
-	# # generalization block 2
-	# OBJ_LINSPACE = [-18, 0, 18]
-	# SIG_gen = stimuli.Sigma([FILL, SHAPE, SIZE], ["fill", "shape", "size"], R + 1, generation_mode = GENERATION_MODE)
-	# block_seq = []
-	# for pid in GL: block_seq.append(SIG_gen.generate_sequence(pid))
-	# random.shuffle(block_seq)	
-	# block_disp_start = visual.TextBox2(WIN, "You are confronted by your boss, the Corporate manager of the F-302 lab. As it turns out, the Corporate had known about the correct combination all along. The experiment is but an internal qualification test to select the fitting member into the rumored “inner circle”.  You never thought that this extraordinary opportunity will be bestowed upon you. As a final test, your boss throws you 15 novel combinations to see if you correctly deduced the minimal combination that will trigger an explosion. Although these combinations have more objects, he explained that the fundamental rule for triggering an explosion remained unchanged. He restarts the presentation software, and you will see each of the novel combinations and predict whether they will trigger an explosion.", alignment = 'left', pos = (0, 5), size = [40, None],  letterHeight = 0.8)
-	# block_disp_end = visual.TextBox2(WIN, "You have finished the 15 combinations your boss gave you. You wondered how you perform, but only the Corporate knows the answer. You gather your thoughts and leave the lab.", alignment = 'left', pos = (0, 2), letterHeight = 0.8)
-	# cont_disp0 = visual.TextBox2(WIN, "(This is the start of the Generalization Block. Press any key to start.)",pos = (0, -3), size = [40, None], alignment = 'center', letterHeight = 0.8)
-	# cont_disp1 = visual.TextBox2(WIN, "(This is the end of the experiment. Thank you for your participation!)",pos = (0, -3), size = [40, None], alignment = 'center', letterHeight = 0.8)	
-	# any_cont(WIN, ABORT_KEY, [block_disp_start, cont_disp0])
-	# core.wait(0.4)
-	# block_rsp = block(WIN, "G2", OBJ_DICTS, TRIAL_OBJ_DICT, block_seq, prod_conj, OBJ_LINSPACE, disp_objs, show_truth = False)
-	# if LOG_FLAG == True:
-	# 	with open(DIRECTORY + "Sub_resp.csv", "a") as outfile:
-	# 		for rind in range(len(block_rsp)):
-	# 				outfile.write("\t".join(block_rsp[rind].astype(str)))
-	# 				outfile.write("\n")	
-	# any_cont(WIN, ABORT_KEY, [block_disp_end, cont_disp1])
-	# core.wait(0.8)
 
 	WIN.close()
 	return
@@ -333,7 +380,7 @@ def starter_win(win, disp_objs = []):
 
 	# Background Messages
 	starter_msg0 = visual.TextBox2(win, "Background Story:", pos = (0,7), size = [41, None], alignment = 'left', letterHeight = 1.6)
-	starter_msg1 = visual.TextBox2(win,"     You are a newly employed physicist in the Deep Rock Corporate, and are assigned to the F-302 lab to investigate a group of exotic objects. The objects resemble simple geometric shapes and are otherwise unimpressive. However, an earlier report indicates that these objects contain a tremendous amount of energy, but will only release the energy (through an explosion) when they are arranged in a certain sequence and put into an alien machine. Previous research in the lab had built up an experimental setup that uses disposable robots to arrange the objects, so one can comfortably observe the explosions in your control room. \n\n      There are currently 8 such objects known to the team, and they differ by their colors (red, blue), shapes (circle, triangle), and size (large, small). The Corporate has limited the investigation to a 2-object sequences for now. Your job is to go through all of these sequences and deduce the correct (and minimal) sequences that will always release energy through an explosion.", pos = (0,-2), size = [40, None], alignment = 'left', letterHeight = 0.7)
+	starter_msg1 = visual.TextBox2(win,"     You are a newly employed physicist in the Deep Rock Corporate, and are assigned to the F-302 lab to investigate a group of exotic objects. The objects resemble simple geometric shapes and are otherwise unimpressive. However, an earlier report indicates that these objects contain a tremendous amount of energy, but will only release the energy (through an explosion) when they are arranged in a certain combination with other objects. Previous research in the lab had built up an experimental setup that uses disposable robots to arrange the objects, so one can comfortably observe the explosions in your control room. \n\n      There are currently 8 such objects known to the team, and they differ by their colors (red, blue), shapes (circle, triangle), and size (large, small). The Corporate has limited the investigation to a 2-object sequences for now. Your job is to go through all of these sequences and deduce the correct (and minimal) sequences that will always release energy through an explosion.", pos = (0,-2), size = [40, None], alignment = 'left', letterHeight = 0.7)
 	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [starter_msg0, starter_msg1] + disp_objs)
 	core.wait(0.2)
 	
@@ -350,7 +397,7 @@ def starter_win(win, disp_objs = []):
 	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [msg1, obj0, obj1, obj2, obj3, obj4, obj5, obj6, obj7] + disp_objs)
 	core.wait(0.2)
 
-	msg1 = visual.TextBox2(win,"A 2-object sequences is simply two objects that are put into the left and right slot of the alien machine. Above is a sequence represented on the screen. The order of the objects matters: if you exchange the left and right objects to the opposite position the outcome may differ.", pos = (0,-7), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	msg1 = visual.TextBox2(win,"A 2-object sequences is simply two objects that are put into the left and right slot of the alien machine. Above is a sequence represented on the screen. The order of the objects matters: if you exchange the left and right objects to the opposite position the outcome may differ", pos = (0,-7), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	obj1 = visual.ImageStim(win, "rsc/2O3F2D/rcl.png", pos = (OBJ_LINSPACE[0],OBJ_HEIGHT))
 	obj2 = visual.ImageStim(win, "rsc/2O3F2D/bts.png", pos = (OBJ_LINSPACE[1],OBJ_HEIGHT))
 	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [msg1, obj1, obj2] + disp_objs)
@@ -360,7 +407,7 @@ def starter_win(win, disp_objs = []):
 	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [msg1] + disp_objs)
 	core.wait(0.2)
 
-	msg1 = visual.TextBox2(win,"You will first go through a training block that contains 160 sequences. Then you will indicate your infer red answer through the test block. The structure of the test block will be identitical to that of the training blocks, except that you only need to go through the 64 unique sequences and will no longer receive feedback from your choices. The corporate will take your choices in the test block as your report of the experiment.", pos = (0,1), size = [40, None], alignment = 'left', letterHeight = 0.8)
+	msg1 = visual.TextBox2(win,"After going through two training blocks, you will encounter the test block. The structure of the test block will be identitical to that of the training blocks, except that you only need to go through 64 sequences and will no longer receive feedback from your choices. The corporate will take your choices in the test block as your report of the experiment.", pos = (0,1), size = [40, None], alignment = 'left', letterHeight = 0.8)
 	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [msg1] + disp_objs)
 	core.wait(0.2)
 
@@ -583,25 +630,6 @@ def decision_process(win, win_objs, disp_objs, prompt_msg, true_usr, fals_usr):
 		prompt_msg.draw()
 		win.flip(clearBuffer = False)
 
-def check_stims(SIG, conj, block_seq):
-	acceptance = 0
-	for ind, seq in enumerate(SIG.sequences): 
-		if conj.accepts(seq): acceptance += 1
-		print(ind)
-		print(seq.hierarchical_rep())
-		print(conj.accepts(seq))
-		print("-------------------")
-	print("================")
-	print(acceptance ,len(SIG.sequences))
-	print("================")
-
-	seq_dict = {}
-	for seq in SIG.sequences: seq_dict.update({seq: 0})
-	for seq in block_seq: seq_dict[seq] += 1
-	for seq in seq_dict.keys():
-		print(seq, seq_dict[seq])
-
-	return
 
 if __name__ == "__main__":
 	main()
