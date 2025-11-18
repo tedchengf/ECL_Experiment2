@@ -398,8 +398,8 @@ def starter_win(win, disp_objs = []):
 	core.wait(0.2)
 
 	msg1 = visual.TextBox2(win,"A 2-object sequences is simply two objects that are put into the left and right slot of the alien machine. Above is a sequence represented on the screen. The order of the objects matters: if you exchange the left and right objects to the opposite position the outcome may differ", pos = (0,-7), size = [40, None], alignment = 'left', letterHeight = 0.8)
-	obj1 = visual.ImageStim(win, "rsc/2O3F2D/rcl.png", pos = (OBJ_LINSPACE[0],OBJ_HEIGHT))
-	obj2 = visual.ImageStim(win, "rsc/2O3F2D/bts.png", pos = (OBJ_LINSPACE[1],OBJ_HEIGHT))
+	obj1 = visual.ImageStim(win, "rsc/2O3F2D/rcw.png", pos = (-5, 4))
+	obj2 = visual.ImageStim(win, "rsc/2O3F2D/btd.png", pos = (5, 4))
 	spec_cont(win, ABORT_KEY, PROCEED_KEYS, [msg1, obj1, obj2] + disp_objs)
 	core.wait(0.2)
 
