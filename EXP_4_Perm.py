@@ -97,20 +97,20 @@ def main():
 
 	###########################################################################
 
-	# Testing Formula
-	test_SIG = stimuli.Sigma([["r", "b"], ["c","t"], ["l","s"]], ["fill", "shape", "size"], R, generation_mode = "Multiset Permutation")
-	# for seq in test_SIG.sequences: 
-	# 	for obj in seq: print(obj)
-	# 	print("########")
-	print(len(test_SIG.sequences))
-	test_conj = test_SIG.form_conjunct(P2, conjunct_type="Seq")
-	acc_count = 0
-	for seq in test_SIG.sequences:
-		if test_conj.accepts(seq): acc_count += 1
-		print(test_conj.accepts(seq))
-		for obj in seq: print(obj.hierarchical_rep())
-	print(acc_count)
-	exit()
+	# # Testing Formula
+	# test_SIG = stimuli.Sigma([["r", "b"], ["c","t"], ["l","s"]], ["fill", "shape", "size"], R, generation_mode = "Multiset Permutation")
+	# # for seq in test_SIG.sequences: 
+	# # 	for obj in seq: print(obj)
+	# # 	print("########")
+	# print(len(test_SIG.sequences))
+	# test_conj = test_SIG.form_conjunct(P2, conjunct_type="Seq")
+	# acc_count = 0
+	# for seq in test_SIG.sequences:
+	# 	if test_conj.accepts(seq): acc_count += 1
+	# 	print(test_conj.accepts(seq))
+	# 	for obj in seq: print(obj.hierarchical_rep())
+	# print(acc_count)
+	# exit()
 
 	# Init Sigma
 	SIG = stimuli.Sigma([FILL, SHAPE, SIZE], ["fill", "shape", "size"], R, generation_mode = GENERATION_MODE)
@@ -123,19 +123,19 @@ def main():
 	while conj_mode not in ("P1", "P2", "P3", "P4"):
 		conj_mode = input("Incorrect Format; Enter Formula Mode Again: ")
 	if conj_mode == "P1": 
-		prod_conj = SIG.form_conjunct(P1, conjunct_type = "Product")
+		prod_conj = SIG.form_conjunct(P1, conjunct_type = "Seq")
 		CORRECT = 32
 		INCORRECT = 48
 	if conj_mode == "P2": 
-		prod_conj = SIG.form_conjunct(P2, conjunct_type = "Product")
+		prod_conj = SIG.form_conjunct(P2, conjunct_type = "Seq")
 		CORRECT = 32
 		INCORRECT = 48
 	if conj_mode == "P3": 
-		prod_conj = SIG.form_conjunct(P3, conjunct_type = "Product")
+		prod_conj = SIG.form_conjunct(P3, conjunct_type = "Seq")
 		CORRECT = 32
 		INCORRECT = 48
 	if conj_mode == "P4": 
-		prod_conj = SIG.form_conjunct(P4, conjunct_type = "Product")
+		prod_conj = SIG.form_conjunct(P4, conjunct_type = "Seq")
 		CORRECT = 32
 		INCORRECT = 48
 	# if conj_mode == "D1":
