@@ -3,7 +3,7 @@ import time
 import random
 from itertools import product 
 from psychopy import visual, core, data, event, sound
-# from psychopy_legacy.visual.ratingscale import RatingScale
+from psychopy_legacy.visual.ratingscale import RatingScale
 import gc
 import os
 
